@@ -1,15 +1,25 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
+    height: 100%;
 }
+
 .active a {
     text-decoration: none;
 }
 
 .messages {
-    background-color: antiquewhite;
+    background-color: #b9dcee;
+    margin: 20px;
+   
 }
+
 .dialogsItem {
-    background-color: beige;
-    margin-right: 5px;
+    background-color: #b9dcee;
+    padding: 20px;
+    line-height: 200%;
+    border-right-style: solid;
+    border-color: white;
+    border-radius: 10px 0px 0px 10px;
+
 }

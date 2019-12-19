@@ -13,11 +13,11 @@ let state = {
             {id: 4, message: 'fck yeeee'}
         ],
         dialogs: [
-            {id: 0, name: 'Andrey'},
-            {id: 1, name: 'Vasya'},
-            {id: 2, name: 'Fedor'},
-            {id: 3, name: 'Valera'},
-            {id: 4, name: 'Max'}
+            {id: 0, name: 'Andrey', ava:'src = ../'},
+            {id: 1, name: 'Vasya', ava:'src = ../'},
+            {id: 2, name: 'Fedor', ava:'src = ../'},
+            {id: 3, name: 'Valera', ava:'src = ../'},
+            {id: 4, name: 'Max', ava:'src = ../'}
         ]
     },
 
