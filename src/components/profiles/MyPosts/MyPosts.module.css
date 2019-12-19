@@ -1,0 +1,12 @@
+.myposts {
+  grid-area: c;
+  background-color: #bcdeee;
+  margin-left: 10px;
+  border-radius: 10px;
+  height: 100vh;
+  
+}
+button {
+  margin-bottom: 5px;
+  color: #11a2ff;
+}

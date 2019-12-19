@@ -1,0 +1,22 @@
+.app-wrapper {
+    display: grid;
+
+    grid-template-areas: "h h" "n c";
+
+    grid-template-rows: 80px 1fr;
+    grid-template-columns: 2fr 10fr;
+
+}
+
+.app-wrapper-content {
+    grid-area: c;
+    background-color: #b9dcee;
+    border-radius: 10px;
+    height: 100%;
+
+}
+
+
+
+
+
