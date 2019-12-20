@@ -13,11 +13,11 @@ let state = {
             {id: 4, message: 'fck yeeee'}
         ],
         dialogs: [
-            {id: 0, name: 'Andrey', ava:'src = ../'},
-            {id: 1, name: 'Vasya', ava:'src = ../'},
-            {id: 2, name: 'Fedor', ava:'src = ../'},
-            {id: 3, name: 'Valera', ava:'src = ../'},
-            {id: 4, name: 'Max', ava:'src = ../'}
+            {id: 0, name: 'Andrey', ava:'src/images/igra_5063.jpg'},
+            {id: 1, name: 'Vasya', ava:'../../images/igra_5664.jpg'},
+            {id: 2, name: 'Fedor', ava:'../../images/igra_mech_Assassins_Creed_21984.jpg'},
+            {id: 3, name: 'Valera', ava:'../../images/igra_pistolet_11094.jpg'},
+            {id: 4, name: 'Max', ava:'../../images/Mortal_Kombat_34217.jpg'}
         ]
     },
 
