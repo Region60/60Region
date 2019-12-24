@@ -1,0 +1,13 @@
+
+Обработка события onClick
+React.createRef() - создание ссылки
+ref{} прописывается в теге (элемент textarea), привязываем ссылку к конкретному элементу
+ссылка ссылается на элемент, на свойство curent
+
+let newPostElement = React.createRef()           - создание ссылки
+<textarea ref={newPostElement}></textarea>       - элемент на которые ссылается ссылка
+
+let addPost = () => {
+        let text = newPostElement.current.value;
+        alert (text)
+    }                                             - берем значение элемента на которой ссылается сылка
