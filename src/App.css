@@ -5,14 +5,16 @@
 
     grid-template-rows: 80px 1fr;
     grid-template-columns: 2fr 10fr;
+    height: 100vh;
+
 
 }
 
 .app-wrapper-content {
     grid-area: c;
-    background-color: #b9dcee;
+    background-color: rgba(185, 220, 238, 0.59);
     border-radius: 10px;
-    height: 100%;
+
 
 }
 
