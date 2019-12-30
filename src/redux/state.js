@@ -4,7 +4,8 @@ let state = {
     profilePage: {
         posts: [
             {id: 1, message: 'Hello', likesCount: 12},
-            {id: 2, message: 'It\'s my first post', likesCount: 4}]
+            {id: 2, message: 'It\'s my first post', likesCount: 4}],
+        newPostText: 'new Post'
     },
     messagesPage: {
         messages: [
@@ -14,6 +15,7 @@ let state = {
             {id: 3, message: 'What?'},
             {id: 4, message: 'fck yeeee'}
         ],
+        newMessageText: 'vtf',
         dialogs: [
             {id: 1, name: 'Andrey', ava: 'src/images/igra_5063.jpg'},
             {id: 2, name: 'Vasya', ava: '../../images/igra_5664.jpg'},
@@ -27,13 +29,35 @@ let state = {
     ]
 }
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
     let newPost = {
         id: 6,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount: 0
     }
     state.profilePage.posts.push(newPost)
+    state.profilePage.newPostText = ' '
+    rerenderEntireTree(state);
+}
+
+export let updateNewPostText = (newText) => {
+
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
+
+export let addMessage = () => {
+    let newMessage = {
+        id: 10,
+        message: state.messagesPage.messages,
+    }
+    state.messagesPage.messages.push(newMessage)
+    state.messagesPage.newMessageText = ' '
+    rerenderEntireTree(state);
+}
+
+export let updateNewMessageText = (newText) => {
+    // state.messagesPage.newMessageText = newText;
     rerenderEntireTree(state);
 }
 
