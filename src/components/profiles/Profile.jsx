@@ -5,6 +5,7 @@ import ProfileInfo from "./profileInfo/ProfileInfo";
 
 
 const Profile = (props) => {
+    debugger;
     return <div>
         <ProfileInfo/>
         <MyPosts posts={props.profilePage.posts}
