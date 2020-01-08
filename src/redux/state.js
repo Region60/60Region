@@ -27,25 +27,17 @@ let store = {
             {id: 0, name: 'Maxim', ava: ' '}
         ]
     },
-    getState() {
-        return this._state;
-    },
     _callSuscraiber() {
         console.log('state changet');
     },
-    updateNewPostText(newText) {
-        this.profilePage.newPostText = newText;
-        this._callSuscraiber(this._state);
+
+    getState() {
+        return this._state;
     },
-    addPost() {
-        let newPost = {
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        }
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPostText = ' '
-        this._callSuscraiber(this._state);
+    subscribe(observer) {
+        this._callSuscraiber = observer;
     },
+
     addMessage() {
         let newMessage = {
             id: 10,
@@ -59,9 +51,21 @@ let store = {
         this._state.messagesPage.newMessageText = newText;
         this._callSuscraiber(this._state);
     },
-    subscribe(observer) {
-        this._callSuscraiber = observer;
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                message: this._state.profilePage.newPostText,
+                likesCount: 0
+            }
+            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.newPostText = ' '
+            this._callSuscraiber(this._state);
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT')  {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSuscraiber(this._state);
+        }
     }
+
 }
 export default store;
 window.store = store;
