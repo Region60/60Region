@@ -8,7 +8,7 @@ let ADD_MESSAGE = 'ADD_MESSAGE';
 let UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
 
 let store = {
-    _state: {
+    /*_state: {
         profilePage: {
             posts: [
                 {id: 1, message: 'Hello', likesCount: 12},
@@ -35,7 +35,7 @@ let store = {
         user: [
             {id: 0, name: 'Maxim', ava: ' '}
         ]
-    },
+    },*/
     _callSuscraiber() {
         console.log('state changet');
     },
