@@ -1,7 +1,7 @@
 let ADD_MESSAGE = 'ADD_MESSAGE';
 let UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
 
-let initialState ={
+let initialState = {
     messages: [
         {id: 0, message: 'Hi'},
         {id: 1, message: 'How are you?'},
