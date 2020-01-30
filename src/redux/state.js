@@ -8,7 +8,7 @@ let ADD_MESSAGE = 'ADD_MESSAGE';
 let UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
 
 let store = {
-    /*_state: {
+    _state: {
         profilePage: {
             posts: [
                 {id: 1, message: 'Hello', likesCount: 12},
@@ -35,7 +35,7 @@ let store = {
         user: [
             {id: 0, name: 'Maxim', ava: ' '}
         ]
-    },*/
+    },
     _callSuscraiber() {
         console.log('state changet');
     },
@@ -57,20 +57,9 @@ let store = {
 
     }
 }
-export const addPostActionCreator = () => {
-    return {type: ADD_POST}
-}
 
-export const updateNewPostTextActionCreator = (text) => {
-    return {type: UPDATE_NEW_POST_TEXT, newText: text}
-}
-export const addMessageActionCreator = () => {
-    return {type: ADD_MESSAGE}
-}
 
-export const updateNewMessageTextActionCreator = (text) => {
-    return {type: UPDATE_NEW_MESSAGE_TEXT, newText: text}
-}
 
-export default store;
-window.store = store;
+
+//export default store;
+//window.store = store;
