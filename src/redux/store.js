@@ -72,5 +72,5 @@ export const updateNewMessageTextActionCreator = (text) => {
     return {type: UPDATE_NEW_MESSAGE_TEXT, newText: text}
 }
 
-export default store;
-window.store = store;
+//export default store;
+//window.store = store;
