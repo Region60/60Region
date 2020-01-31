@@ -16,9 +16,12 @@ let mapDispatchToProps = (dispatch) => {
         },
         newMessage: () => {
             dispatch(addMessageActionCreator())
+
+
         }
     }
 }
+
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
 export default DialogsContainer;

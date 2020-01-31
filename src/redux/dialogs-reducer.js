@@ -26,12 +26,17 @@ const dialogReducer = (state = initialState, action) => {
                 id: 10,
                 message: state.newMessageText
             };
-            state.messages.push(newMessage)
-            state.newMessageText = ' '
-            return state
-        case UPDATE_NEW_MESSAGE_TEXT:
-            state.newMessageText = action.newText;
-            return state
+            return {
+                ...state,
+                messages: [...state.messages, newMessage],
+                newMessageText: ' '
+            }
+        case UPDATE_NEW_MESSAGE_TEXT: {
+            return {
+                ...state,
+                newMessageText: action.newText
+            }
+        }
         default:
             return state
     }
@@ -40,7 +45,6 @@ const dialogReducer = (state = initialState, action) => {
 export const addMessageActionCreator = () => {
     return {type: ADD_MESSAGE}
 }
-
 export const updateNewMessageTextActionCreator = (text) => {
     return {type: UPDATE_NEW_MESSAGE_TEXT, newText: text}
 }
