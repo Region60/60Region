@@ -10,6 +10,7 @@ import Settings from "./components/settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/news/News";
 import DialogsContainer from "./components/dialogs/DialogsContainer";
+import Users from "./components/users/Users";
 
 
 const App = (props) => {
@@ -22,6 +23,8 @@ const App = (props) => {
                 <div className='app-wrapper-content'>
                     <Route path='/profile'
                            render={() => <Profile/>}/>
+                    <Route path='/users'
+                           render={() => <Users/>}/>
                     <Route path='/dialogs'
                            render={() => <DialogsContainer />}/>
                     <Route path='/news' component={News}/>

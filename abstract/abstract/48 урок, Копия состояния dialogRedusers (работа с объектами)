@@ -24,6 +24,13 @@ messages: [
 messagesCopy = [...messages];
 messagesCopy.push({id: 5, message: 'oh noooo'};
 
-стало
+стало:
 messagesCopy = [{id: 5, message: 'oh noooo'},...messages];    //в начало массива(объекта)
 messagesCopy = [...messages,{id: 5, message: 'oh noooo'}];    //в конец массива
+
+Копирование массива с заменой какого-то элемента спомощью метода map (возвращает новый массив на основе старого массива)
+let stateCopy = {
+...state,
+users: state.users.map (callbackfn u => u)   //
+}
+
