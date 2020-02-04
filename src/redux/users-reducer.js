@@ -1,20 +1,11 @@
 let FOLLOW = 'FOLLOW';
 let UNFOLLOW = 'UNFOLLOW';
+let SET_USERS = 'SET_USERS';
 
 let initialState = {
-    users: [
-        {id: 1, followed: true, fulname: 'Max', status: 'trololo', location: {city: 'Pskov', country: 'Russia'}},
-        {id: 2, followed: false, fulname: 'Nik', status: 'excuse me', location: {city: 'Murmansk', country: 'Russia'}},
-        {
-            id: 3,
-            followed: true,
-            fulname: 'Diman',
-            status: 'kak-to tak',
-            location: {city: 'Murmansk', country: 'Russia'}
-        },
-    ]
+    /*users:*/
 }
-const userReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => {
         switch (action.type) {
             case FOLLOW:
                 return {
@@ -36,17 +27,20 @@ const userReducer = (state = initialState, action) => {
                         return u
                     })
                 }
+            case SET_USERS:
+                return {...state, users: [...state.users, ...action.users]}
             default:
                 return state
         }
     }
 ;
 
-export const followCreator = (userId) => {
+export const followActionCreator = (userId) => {
     return {type: FOLLOW, userId}
 }
 export const unFollowActionCreator = (userId) => {
     return {type: UNFOLLOW, userId}
 }
+export const setUsersActionCreator = (users) => ({type: SET_USERS, users})    //не пишем ретурн, возвращаемый объект помещаем в круглые кнопки
 
-export default userReducer;
+export default usersReducer;
