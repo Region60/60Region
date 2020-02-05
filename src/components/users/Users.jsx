@@ -2,9 +2,8 @@ import React from 'react';
 import classes from './module.css'
 
 const Users = (props) => {
-
     if(props.users.length === 0) {
-        props.setUsers([
+        props.setUser([
             {
                 id: 1,
                 userPhoto: 'https://www.cheltv.ru/wp-content/uploads/2019/11/6456090c.jpeg',
@@ -27,7 +26,7 @@ const Users = (props) => {
                 fulname: 'Diman',
                 status: 'kak-to tak',
                 location: {city: 'Murmansk', country: 'Russia'}
-            },
+            }
         ])
     }
 
