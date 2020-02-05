@@ -18,7 +18,7 @@ const Dialogs = (props) => {
     }
 
     let messagesElements = props.dialogsPage.messages
-        .map(m => <Message message={m.message} key={d.id} />)
+        .map(m => <Message message={m.message} />)
 
     return (
         <div className={classes.dialogs}>
