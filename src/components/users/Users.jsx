@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './module.css'
+import classes from './Users.module.css'
 
 const Users = (props) => {
     if(props.users.length === 0) {
@@ -7,7 +7,7 @@ const Users = (props) => {
             {
                 id: 1,
                 userPhoto: 'https://www.cheltv.ru/wp-content/uploads/2019/11/6456090c.jpeg',
-                followed: true,
+                followed: false,
                 fulname: 'Max',
                 status: 'trololo',
                 location: {city: 'Pskov', country: 'Russia'}
@@ -15,14 +15,14 @@ const Users = (props) => {
             {
                 id: 2,
                 userPhoto: 'https://www.cheltv.ru/wp-content/uploads/2019/11/6456090c.jpeg',
-                followed: false,
+                followed: true,
                 fulname: 'Nik',
                 status: 'excuse me',
                 location: {city: 'Murmansk', country: 'Russia'}
             },
             {
                 id: 3, userPhoto: 'https://www.cheltv.ru/wp-content/uploads/2019/11/6456090c.jpeg',
-                followed: true,
+                followed: false,
                 fulname: 'Diman',
                 status: 'kak-to tak',
                 location: {city: 'Murmansk', country: 'Russia'}
