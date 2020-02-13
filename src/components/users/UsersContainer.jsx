@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import Users from "./Users";
+import UsersApiComponent from "./UsersApiComponent";
 import {
     followActionCreator,
     setCurrentPageActionCreator, setTotalUserCountActionCreator,
@@ -38,4 +38,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users);
+export const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersApiComponent);
