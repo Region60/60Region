@@ -1,10 +1,10 @@
 import React from 'react';
-import preloader from '../../../img/preloader.gif'
+import pre from '../../../img/pre.gif'
 
 const Preloader = (props)=> {
 return <div>
-<img src={preloader}/>
+<img src={pre}/>
 </div>
 }
 
-export default preloader;
+export default Preloader;

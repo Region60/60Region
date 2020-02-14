@@ -42,7 +42,7 @@ const usersReducer = (state = initialState, action) => {
             case TOTAL_USERS_COUNT:
                 return {...state, totalUsersCount: action.count}
             case TOGGLE_IS_FETCHING:
-                return {...state, isFetching: action.toggle}
+                return {...state, isFetching: action.isFetching}
             default:
                 return state
         }
@@ -60,6 +60,6 @@ export const setTotalUserCountActionCreator = (totalUsersCount) => ({type: TOTAL
 export const setCurrentPageActionCreator = (currentPage) => {
     return {type: CURRENT_PAGE, currentPage: currentPage}
 }
-export const setToggleIsFetchingActionCreator = (toggle) => ({type: TOGGLE_IS_FETCHING, count: toggle})
+export const setToggleIsFetchingActionCreator = (isFetching) => ({type: TOGGLE_IS_FETCHING,isFetching})
 
 export default usersReducer;
