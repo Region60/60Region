@@ -9,7 +9,7 @@ import Settings from "./components/settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/news/News";
 import DialogsContainer from "./components/dialogs/DialogsContainer";
-import {UsersContainer} from "./components/users/UsersContainer";
+import UsersContainer from "./components/users/UsersContainer";
 
 
 const App = (props) => {
