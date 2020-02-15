@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {
-    followActionCreator,
-    setCurrentPageActionCreator, setToggleIsFetchingActionCreator, setTotalUserCountActionCreator,
-    setUsersActionCreator,
-    unFollowActionCreator
+    follow,
+    setCurrentPage, toggleIsFetching, setTotalUserCount,
+    setUsers,
+    unfollow
 } from '../../redux/users-reducer';
 import * as axios from 'axios';
 import Users from './Users';
@@ -16,7 +16,7 @@ class UsersContainer extends React.Component {
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.toggleIsFetching(false)
-                this.props.setUser(response.data.items)
+                this.props.setUsers(response.data.items)
                 this.props.setTotalUserCount(response.data.totalCount)
 
             })
@@ -27,7 +27,7 @@ class UsersContainer extends React.Component {
         this.props.toggleIsFetching(true)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
             .then(response => {
-                this.props.setUser(response.data.items)
+                this.props.setUsers(response.data.items)
             })
         this.props.toggleIsFetching(false)
     }
@@ -56,7 +56,7 @@ const mapStateToProps = (state) => {
         isFetching: state.usersPage.isFetching
     }
 }
-const mapDispatchToProps = (dispatch) => {
+/*const mapDispatchToProps = (dispatch) => {
     return {
         follow: (userId) => {
             dispatch(followActionCreator(userId))
@@ -78,7 +78,14 @@ const mapDispatchToProps = (dispatch) => {
         }
 
     }
-}
+}*/
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setTotalUserCount,
+    toggleIsFetching
+})(UsersContainer);

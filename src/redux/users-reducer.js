@@ -49,17 +49,17 @@ const usersReducer = (state = initialState, action) => {
     }
 ;
 
-export const followActionCreator = (userId) => {
+export const follow = (userId) => {
     return {type: FOLLOW, userId}
 }
-export const unFollowActionCreator = (userId) => {
+export const unfollow = (userId) => {
     return {type: UNFOLLOW, userId}
 }
-export const setUsersActionCreator = (users) => ({type: SET_USERS, users})    //не пишем ретурн, возвращаемый объект помещаем в круглые кнопки
-export const setTotalUserCountActionCreator = (totalUsersCount) => ({type: TOTAL_USERS_COUNT, count: totalUsersCount})
-export const setCurrentPageActionCreator = (currentPage) => {
+export const setUsers = (users) => ({type: SET_USERS, users})    //не пишем ретурн, возвращаемый объект помещаем в круглые кнопки
+export const setTotalUserCount = (totalUsersCount) => ({type: TOTAL_USERS_COUNT, count: totalUsersCount})
+export const setCurrentPage = (currentPage) => {
     return {type: CURRENT_PAGE, currentPage: currentPage}
 }
-export const setToggleIsFetchingActionCreator = (isFetching) => ({type: TOGGLE_IS_FETCHING,isFetching})
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING,isFetching})
 
 export default usersReducer;
