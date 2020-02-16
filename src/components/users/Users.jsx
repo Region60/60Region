@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Users.module.css'
 import * as axios from 'axios'
 import userImg from '../../img/userImg.png'
+import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -26,7 +27,9 @@ let Users = (props) => {
             props.users.map(u => <div key={u.id}>
                 <div>
                     <div>
+                        <NavLink to={'/profile/' + u.id}>
                         <img src={u.photos.small != null ? u.photos : userImg} className={classes.photo}/>
+                        </NavLink>
                     </div>
                     <div>
                         {u.followed
