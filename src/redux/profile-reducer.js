@@ -3,7 +3,6 @@ let ADD_POST = 'ADD-POST';
 let SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 let initialState = {
-
     posts: [
         {id: 1, message: 'Hello', likesCount: 12},
         {id: 2, message: 'It\'s my first post', likesCount: 4}],

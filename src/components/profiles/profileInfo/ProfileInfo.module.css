@@ -5,3 +5,10 @@ img {
 .descriptionBlock{
     padding-left: 19px;
 }
+.contactsUser {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 1px;
+}
