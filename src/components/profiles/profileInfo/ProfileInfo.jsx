@@ -1,6 +1,8 @@
 import React from 'react';
 import classes from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
+import userImg from '../../../img/userImg.png'
+
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -9,10 +11,11 @@ const ProfileInfo = (props) => {
     return (
         <div>
             <div>
-        <img src='http://rk.karelia.ru/wp-content/uploads/2016/05/More.jpg'></img>
+                <img src='http://rk.karelia.ru/wp-content/uploads/2016/05/More.jpg'></img>
             </div>
             <div className={classes.descriptionBlock}>
-                <img src={(props.profile.photos.large)}/>
+                <img src={(props.profile.photos.large == null? userImg : props.profile.photos.large )} className={classes.photo}/>
+                <div>Name - {props.profile.fullName}</div>
                 <div className={classes.contactsUser}>
                     <div className={classes.contacts}>Contacts</div>
                     <div>Facebook -{props.profile.contacts.facebook}</div>
@@ -24,9 +27,9 @@ const ProfileInfo = (props) => {
                     <div>Github -{props.profile.contacts.github}</div>
                     <div>Mainlink -{props.profile.contacts.mainlink}</div>
                 </div>
-                     ava - description
+                ava - description
             </div>
-    </div>
+        </div>
     )
 }
 export default ProfileInfo;
