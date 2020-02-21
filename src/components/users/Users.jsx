@@ -36,7 +36,9 @@ let Users = (props) => {
                             <button onClick={() => {
                                 axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{
                                     withCredentials: true,
-                                    headers:{git
+
+                                    headers:{
+
                                         "API-KEY": "0ac29fb6-636b-4af2-87ca-b7b9a9a44a51"
                                     }
                                 })
@@ -52,6 +54,7 @@ let Users = (props) => {
                                 axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
                                     withCredentials: true,
                                     headers:{
+
                                         "API-KEY": "0ac29fb6-636b-4af2-87ca-b7b9a9a44a51"
                                     }
                                 })
