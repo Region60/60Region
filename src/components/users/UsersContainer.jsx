@@ -11,7 +11,6 @@ import Preloader from '../common/Preloader/Preloader';
 import {usersAPI} from "../../api/api";
 
 class UsersContainer extends React.Component {
-
     componentDidMount() {
         this.props.toggleIsFetching(true)
 
