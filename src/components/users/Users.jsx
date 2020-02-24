@@ -5,8 +5,8 @@ import userImg from '../../img/userImg.png'
 import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
 
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
     let pages = []
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
@@ -33,8 +33,8 @@ let Users = (props) => {
                     </div>
                     <div>
                         {u.followed ?
-                            <button disabled={props.followingIsProgress.some (id=> id===u.id)} onClick={() => {
-                                props.toggleProgress(true,u.id)
+                            <button disabled={props.followingIsProgress.some(id => id === u.id)} onClick={() => {
+                                props.toggleFollowingProgress(true, u.id)
                                 axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
                                     withCredentials: true,
                                     headers: {
@@ -45,13 +45,13 @@ let Users = (props) => {
                                         if (response.data.resultCode == 0) {
                                             props.follow(u.id)
                                         }
-                                        props.toggleProgress(false,u.id)
+                                        props.toggleFollowingProgress(false, u.id)
                                     })
 
                             }}>Unfollow</button>
                             :
-                            <button disabled={props.followingIsProgress.some (id=> id===u.id)} onClick={() => {
-                                props.toggleProgress(true,u.id)
+                            <button disabled={props.followingIsProgress.some(id => id === u.id)} onClick={() => {
+                                props.toggleFollowingProgress(true, u.id)
                                 axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
                                     withCredentials: true,
                                     headers: {
@@ -62,7 +62,7 @@ let Users = (props) => {
                                         if (response.data.resultCode == 0) {
                                             props.unfollow(u.id)
                                         }
-                                        props.toggleProgress(false,u.id)
+                                        props.toggleFollowingProgress(false, u.id)
                                     })
                             }}>Follow</button>}
                     </div>
