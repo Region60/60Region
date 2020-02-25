@@ -1,3 +1,5 @@
+import {usersAPI as userAPI, usersAPI} from "../api/api";
+
 let FOLLOW = 'FOLLOW';
 let UNFOLLOW = 'UNFOLLOW';
 let SET_USERS = 'SET_USERS';
@@ -57,10 +59,10 @@ const usersReducer = (state = initialState, action) => {
     }
 ;
 
-export const follow = (userId) => {
+export const followSuccess = (userId) => {
     return {type: FOLLOW, userId}
 }
-export const unfollow = (userId) => {
+export const unfollowSuccess = (userId) => {
     return {type: UNFOLLOW, userId}
 }
 export const setUsers = (users) => ({type: SET_USERS, users})    //не пишем ретурн, возвращаемый объект помещаем в круглые кнопки
@@ -75,5 +77,43 @@ export const toggleFollowingProgress = (isFetching, userId) => ({
     userId
 })
 
+export const getUsers = (currentPage, pageSize) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true))
+
+        usersAPI.getUsers(currentPage, pageSize).then(data => {
+
+            dispatch(toggleIsFetching(false))
+            dispatch(setUsers(data.items))
+            dispatch(setTotalUserCount(data.totalCount))
+        })
+    }
+}
+
+export const follow = (userId) => {
+    return (dispatch) => {
+        dispatch(toggleFollowingProgress(true, userId))
+        userAPI.follow(userId)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(followSuccess(userId))
+                }
+                dispatch(toggleFollowingProgress(false, userId))
+            })
+    }
+}
+
+export const unfollow = (userId) => {
+    return (dispatch) => {
+        dispatch(toggleFollowingProgress(true, userId))
+        userAPI.unfollow(userId)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(unfollowSuccess(userId))
+                }
+                dispatch(toggleFollowingProgress(false, userId))
+            })
+    }
+}
 
 export default usersReducer;

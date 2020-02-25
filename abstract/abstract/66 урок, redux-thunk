@@ -1,0 +1,5 @@
+
+thunk - функция которая делает запросы на сервер и  диспачит функции
+
+npm i redux-thunk устанавливаем applyMiddleware() -промежуточный слой между sotre.dispatch и redusers
+Выносим всю логику запросов в userReducers
