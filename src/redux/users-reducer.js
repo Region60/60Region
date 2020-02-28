@@ -24,7 +24,7 @@ const usersReducer = (state = initialState, action) => {
                     ...state,
                     users: state.users.map(u => {
                         if (u.id === action.userId) {
-                            return {...u, followed: false}  //возвращаем копию users и меняем значение свойства followed на true
+                            return {...u, followed: true}  //возвращаем копию users и меняем значение свойства followed на true
                         }
                         return u;
                     })
@@ -34,7 +34,7 @@ const usersReducer = (state = initialState, action) => {
                     ...state,
                     users: state.users.map(u => {
                         if (u.id === action.userId) {
-                            return {...u, followed: true}  //возвращаем копию users и меняем значение свойства followed на false
+                            return {...u, followed: false}  //возвращаем копию users и меняем значение свойства followed на false
                         }
                         return u
                     })
@@ -86,6 +86,7 @@ export const getUsers = (currentPage, pageSize) => {
             dispatch(toggleIsFetching(false))
             dispatch(setUsers(data.items))
             dispatch(setTotalUserCount(data.totalCount))
+            dispatch(setCurrentPage(currentPage))
         })
     }
 }
@@ -95,7 +96,7 @@ export const follow = (userId) => {
         dispatch(toggleFollowingProgress(true, userId))
         userAPI.follow(userId)
             .then(response => {
-                if (response.data.resultCode === 0) {
+                if (response.data.resultCode == 0) {
                     dispatch(followSuccess(userId))
                 }
                 dispatch(toggleFollowingProgress(false, userId))
@@ -108,7 +109,7 @@ export const unfollow = (userId) => {
         dispatch(toggleFollowingProgress(true, userId))
         userAPI.unfollow(userId)
             .then(response => {
-                if (response.data.resultCode === 0) {
+                if (response.data.resultCode == 0) {
                     dispatch(unfollowSuccess(userId))
                 }
                 dispatch(toggleFollowingProgress(false, userId))
