@@ -72,13 +72,7 @@ const mapStateToProps = (state) => {
 }*/
 
 
-export default compose(withAuthRedirect,
-    connect(mapStateToProps,
-        {
-            follow,
-            unfollow,
-            setCurrentPage,
-            setTotalUserCount,
-            getUsers
-        })
-    (UsersContainer));
+export default compose(
+    withAuthRedirect,
+    connect(mapStateToProps,{follow, unfollow, setCurrentPage, setTotalUserCount, getUsers}))
+    (UsersContainer)
