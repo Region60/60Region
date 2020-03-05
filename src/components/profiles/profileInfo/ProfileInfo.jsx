@@ -16,8 +16,8 @@ const ProfileInfo = (props) => {
             </div>
             <div className={classes.descriptionBlock}>
                 <img src={(props.profile.photos.large == null? userImg : props.profile.photos.large )} className={classes.photo}/>
-                <div>Name - {props.profile.fullName}</div>
                 <ProfileStatus status ={'Hello'}/>
+                <div>Name - {props.profile.fullName}</div>
                 <div className={classes.contactsUser}>
                     <div className={classes.contacts}>Contacts</div>
                     <div>Facebook -{props.profile.contacts.facebook}</div>
