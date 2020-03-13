@@ -1,0 +1,5 @@
+
+redux-form это библеотека которая содержит формы, и которую налдо установить
+в redux-store импортируем form reducers и добавляем к combineReducers
+
+компоненты в redux-form - Field с свойством: component={'input'}, эо по сути тоже компонента
