@@ -9,7 +9,7 @@ let initialState = {
         {id: 3, message: 'What?'},
         {id: 4, message: 'fck yeeee'}
     ],
-    newMessageText: 'vtf!!!',
+    //newMessageText: 'vtf!!!',
     dialogs: [
         {id: 1, name: 'Andrey', ava: 'src/images/igra_5063.jpg'},
         {id: 2, name: 'Vasya', ava: '../../images/igra_5664.jpg'},
@@ -24,29 +24,22 @@ const dialogReducer = (state = initialState, action) => {
         case ADD_MESSAGE:
             let newMessage = {
                 id: 10,
-                message: state.newMessageText
+                message: action.newMessageText
             };
             return {
                 ...state,
                 messages: [...state.messages, newMessage],
                 newMessageText: ' '
             }
-        case UPDATE_NEW_MESSAGE_TEXT: {
-            return {
-                ...state,
-                newMessageText: action.newText
-            }
-        }
+
         default:
             return state
     }
 }
 
-export const addMessageActionCreator = () => {
-    return {type: ADD_MESSAGE}
+export const addMessageActionCreator = (newMessageText) => {
+    return {type: ADD_MESSAGE, newMessageText}
 }
-export const updateNewMessageTextActionCreator = (text) => {
-    return {type: UPDATE_NEW_MESSAGE_TEXT, newText: text}
-}
+
 
 export default dialogReducer;
