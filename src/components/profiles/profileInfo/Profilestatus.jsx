@@ -1,7 +1,4 @@
 import React from 'react'
-import Preloader from "../../common/Preloader/Preloader";
-import classes from "./ProfileInfo.module.css";
-import userImg from "../../../img/userImg.png";
 
 class ProfileStatus extends React.Component {
     state = {
@@ -9,13 +6,15 @@ class ProfileStatus extends React.Component {
         status: this.props.status
     }
     activateEditMode = () => {
-        this.setState({editMode:true})
+        this.setState({editMode: true})
     }
 
+
     deActivateEditMode = () => {
-        this.setState({editMode:false})
-        this.props.updateStatus(this.props.status)
+        this.setState({editMode: false})
+        this.props.updateStatus(this.state.status)
     }
+
     onStatusChange = (e) => {
         this.setState({
             status: e.currentTarget.value
@@ -23,17 +22,17 @@ class ProfileStatus extends React.Component {
     }
 
     render() {
-        debugger
         return (
             <div>
                 {!this.state.editMode &&
                 <div>
                     <span onDoubleClick={this.activateEditMode}>{this.props.status}</span>
                 </div>
-                        }
+                }
                 {this.state.editMode &&
                 <div>
-                    <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deActivateEditMode}  value={this.props.status}/>
+                    <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deActivateEditMode}
+                           value={this.state.status}/>
                 </div>
                 }
             </div>
