@@ -1,5 +1,5 @@
-import React from 'react';
-import classes from './Dialogs.module.css'
+import React from "react";
+import classes from "./Dialogs.module.css";
 import DialogItem from "./dialogItem/DialogItem";
 import Message from "./message/Message";
 import {Redirect} from "react-router-dom";
@@ -11,8 +11,6 @@ import {maxLengthCreator, required} from "../utiles/validators.js";
 const Dialogs = (props) => {
     let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id}
                                                                          ava={d.ava}/>)
-
-
 
     let addNewMessage = (value) => {
         props.newMessage(value.newMessageText);
@@ -46,7 +44,8 @@ const AddMessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field component={Textarea} validate={[required, maxLength50]} name='newMessageText' placeholder='Enter your message'/>
+                <Field component={Textarea} validate={[required, maxLength50]} name='newMessageText'
+                       placeholder='Enter your message'/>
             </div>
 
             <div>
@@ -56,6 +55,6 @@ const AddMessageForm = (props) => {
     )
 }
 
-const AddMessageFormRedux = reduxForm ({form: "dialogAddMessageForm"})(AddMessageForm)
+const AddMessageFormRedux = reduxForm({form: "dialogAddMessageForm"})(AddMessageForm)
 
 export default Dialogs;
