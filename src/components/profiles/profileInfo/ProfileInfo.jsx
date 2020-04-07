@@ -3,6 +3,7 @@ import classes from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
 import userImg from '../../../img/userImg.png'
 import ProfileStatus from './Profilestatus'
+import ProfileStatusWithHook from "./ProfileStatusрHook";
 
 
 const ProfileInfo = (props) => {
@@ -18,7 +19,7 @@ const ProfileInfo = (props) => {
                 <img src={(props.profile.photos.large == null? userImg : props.profile.photos.large )} className={classes.photo}/>
 
                 <div>Name - {props.profile.fullName}</div>
-                <ProfileStatus status ={props.status} updateStatus={props.updateStatus}/>
+                <ProfileStatusWithHook status ={props.status} updateStatus={props.updateStatus}/>
                 <div className={classes.contactsUser}>
                     <div className={classes.contacts}>Contacts</div>
                     <div>Facebook -{props.profile.contacts.facebook}</div>
