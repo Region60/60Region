@@ -23,3 +23,4 @@
 [1126/173948.093:ERROR:process_memory_win.cc(73)] ReadMemory at 0x7ffc1475d998 of 48 bytes failed: Запрос ReadProcessMemory или WriteProcessMemory был выполнен только частично. (0x12B)
 [1126/173948.094:ERROR:process_memory_win.cc(73)] ReadMemory at 0x7ffc147633a0 of 64 bytes failed: Запрос ReadProcessMemory или WriteProcessMemory был выполнен только частично. (0x12B)
 [1126/173948.098:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: Попытка доступа к процессу, выполняющему процедуру завершения. (0xc000010a)
+[0413/142738.490:ERROR:settings.cc(320)] Settings magic is not 1129342067

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Field, reduxForm} from "redux-form";
-import {Input} from "../common/FormsControls/FormsControls";
+import {createFields, Input} from "../common/FormsControls/FormsControls";
 import {required} from "../utiles/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
@@ -10,16 +10,11 @@ import classes from "../common/FormsControls/FormsControls.module.css"
 const LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <div>
-                <Field validate={[required]} placeholder={'Email'} name={'email'} component={Input}/>
-            </div>
-            <div>
-                <Field validate={[required]} placeholder={'Password'} name={'password'} component={Input}
-                       type={'password'}/>
-            </div>
-            <div>
-                <Field type={'checkbox'} name={'rememberMe'} component={Input}/>remember me
-            </div>
+
+                {createFields('Email','email', [required],Input)}
+                {createFields('Password','password', [required],Input, {type:"password"})}
+                {createFields(null,'rememberMe', [],Input, {type:"checkbox"},'remember me')}
+
             {props.error &&
                 <div className={classes.formSummaryError}>
                     {props.error}
