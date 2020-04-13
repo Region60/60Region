@@ -3,7 +3,7 @@ import './App.css';
 import Nav from './components/nav/Nav';
 import Music from "./components/music/Music";
 import Settings from "./components/settings/Settings";
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {Route, withRouter} from "react-router-dom";
 import News from "./components/news/News";
 import DialogsContainer from "./components/dialogs/DialogsContainer";
 import UsersContainer from "./components/users/UsersContainer";
@@ -25,7 +25,7 @@ class App extends Component {
             return <Preloader/>
         }
         return (
-            <BrowserRouter>
+
                 <div className="app-wrapper">
                     <HeaderContainer/>
                     <Nav/>
@@ -43,7 +43,7 @@ class App extends Component {
                         <Route path='/settings' component={Settings}/>
                     </div>
                 </div>
-            </BrowserRouter>
+
         );
     }
 }
