@@ -1,14 +1,11 @@
 import React from 'react';
-import classes from './Users.module.css'
-import userImg from '../../img/userImg.png'
-import {NavLink} from "react-router-dom";
 import Paginator from "../common/Paginator/Paginator";
 import User from "./User";
 
-let Users = ({currentPage, totalUserCount, pageSize, onPageChanged, ...props}) => {
+let Users = ({currentPage, totalUsersCount, pageSize, onPageChanged, ...props}) => {
 
     return <div>
-        <Paginator currentPage={currentPage} onPageChanged={onPageChanged} totalUsersCount={totalUserCount}
+        <Paginator currentPage={currentPage} onPageChanged={onPageChanged} totalItemsCount={totalUsersCount}
                    pageSize={pageSize}/>
         <div>
             {
