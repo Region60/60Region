@@ -4,7 +4,7 @@ import {createFields, Input, Textarea} from "../../common/FormsControls/FormsCon
 import {reduxForm} from "redux-form";
 
 const ProfileDataForm = ({handleSubmit,profile}) => {
-    debugger
+
     return <form onSubmit={handleSubmit}>
         <div>
             <button onClick={()=> {}}>save</button>
