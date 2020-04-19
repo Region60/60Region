@@ -6,6 +6,7 @@ let SET_STATUS = 'SET_STATUS';
 let DELETE = 'DELETE';
 let SAVE_PHOTO = 'SAVE_PHOTO'
 
+
 let initialState = {
     posts: [
         {id: 1, message: 'Hello', likesCount: 12},
@@ -30,7 +31,6 @@ const profileReducer = (state = initialState, action) => {
             return {...state, posts: state.posts.filter(p => p.id != action.postId)}
         case SAVE_PHOTO:
             return {...state, profile: {...state.profile, photos: action.photos}}
-
         default:
             return state;
     }
@@ -81,6 +81,14 @@ export const savePhoto = (file) => async (dispatch) => {
         dispatch(savePhotoSucsess(response.data.data.photos
         ))
     }
+}
+
+export const saveProfile = (formData) => async (dispatch,getState) => {
+    const userId = getState().auth.userId
+    let response = await profileAPI.saveProfile(formData)
+
+    if (response.data.resultCode === 0) {
+        dispatch(getUserProfile(userId))}
 }
 
 

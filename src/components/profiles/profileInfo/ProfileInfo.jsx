@@ -8,7 +8,7 @@ import {createFields, Input} from "../../common/FormsControls/FormsControls";
 
 
 const ProfileInfo = (props) => {
-    let [editMode, setEditMode] = useState (false)
+    let [editMode, setEditMode] = useState(false)
     if (!props.profile) {
         return <Preloader/>
     }
@@ -16,6 +16,11 @@ const ProfileInfo = (props) => {
         if (e.target.files.length) {
             props.savePhoto(e.target.files[0])
         }
+    }
+
+    const onSubmit = (formData) => {
+        props.saveProfile(formData)
+        setEditMode(false)
     }
 
     return (
@@ -28,8 +33,12 @@ const ProfileInfo = (props) => {
                 <img src={(props.profile.photos.large == null ? userImg : props.profile.photos.large)}
                      className={classes.photo}/>
                 {editMode ?
-                    <ProfileDataForm profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
-                    : <ProfileData editeModeEctiveted={()=>{setEditMode(true)} } isOwner={props.isOwner} profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>}
+                    <ProfileDataForm initialValues={props.profile} onSubmit={onSubmit} profile={props.profile}
+                                     status={props.status} updateStatus={props.updateStatus}/>
+                    : <ProfileData editeModeEctiveted={() => {
+                        setEditMode(true)
+                    }} isOwner={props.isOwner} profile={props.profile} status={props.status}
+                                   updateStatus={props.updateStatus}/>}
             </div>
         </div>
     )
@@ -37,7 +46,9 @@ const ProfileInfo = (props) => {
 
 const ProfileData = (props) => {
     return <div>
-        {props.isOwner &&  <div><button onClick={props.editeModeEctiveted}>edit</button></div>}
+        {props.isOwner && <div>
+            <button onClick={props.editeModeEctiveted}>edit</button>
+        </div>}
         <div>
             <b>Name</b> - {props.profile.fullName}
         </div>
