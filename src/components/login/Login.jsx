@@ -8,7 +8,7 @@ import {Redirect} from "react-router-dom";
 import classes from "../common/FormsControls/FormsControls.module.css"
 
 const LoginForm = (props) => {
-    return (
+        return (
         <form onSubmit={props.handleSubmit}>
                 {createFields('Email','email', [required],Input)}
                 {createFields('Password','password', [required],Input, {type:"password"})}

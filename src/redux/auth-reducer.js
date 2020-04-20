@@ -6,7 +6,7 @@ let SET_CAPTCHA_URL = 'SET_CAPTCHA_URL';
 
 
 let initialState = {
-    userID: null,
+    userId: null,
     email: null,
     login: null,
     isAuth: false,
@@ -16,9 +16,10 @@ const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_DATE:
         case SET_CAPTCHA_URL:
+
             return {...state, ...action.data}
 
-        default:
+              default:
             return state
     }
 }
@@ -32,6 +33,7 @@ export const setAuthUserData = (userId, email, login, isAuth) => ({
 export const setCaptchaUrl = (captchaUrl) => ({
     type: SET_CAPTCHA_URL,
     data: captchaUrl
+
 })
 
 export const getAuthUserData = () => async (dispatch) => {
@@ -52,7 +54,7 @@ export const login = (email, password, rememberMe, captcha) => async (dispatch) 
             dispatch(getCaptchaUrl())
         }
         let message = response.data.messages.length > 0 ? response.data.messages[0] : 'Some error'
-        dispatch(stopSubmit('login', {_error: 'Common error'}))
+        dispatch(stopSubmit('login', {_error: message}))
     }
 }
 
