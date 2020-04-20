@@ -19,8 +19,11 @@ const ProfileInfo = (props) => {
     }
 
     const onSubmit = (formData) => {
-        props.saveProfile(formData)
-        setEditMode(false)
+        props.saveProfile(formData).then(
+            () => {
+                setEditMode(false)
+            }
+        )
     }
 
     return (
@@ -77,7 +80,7 @@ const ProfileData = (props) => {
 }
 
 
-const Contact = ({contactTitle, contactValue}) => {
+ const Contact = ({contactTitle, contactValue}) => {
     return <div><b>{contactTitle}</b>: {contactValue}</div>
 }
 
