@@ -54,7 +54,7 @@ const ProfileData = (props) => {
         </div>
         <ProfileStatusWithHook status={props.status} updateStatus={props.updateStatus}/>
         <div>
-            <b>Lookink for a job</b>: {props.profile.lookingForAJobDescription}
+            <b>Lookink for a job</b>: {props.profile.lookingForAJob}
         </div>
         <div>
             <b>Professional slills</b>: {props.profile.lookingForAJobDescription}
