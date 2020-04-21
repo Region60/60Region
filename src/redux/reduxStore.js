@@ -8,6 +8,7 @@ import {reducer as formReducer} from "redux-form"
 import appReducer from "./app-reducer";
 
 let reducers = combineReducers({
+
     profilePage: profileReducer,
     messagesPage: dialogReducer,
     usersPage:usersReducer,
