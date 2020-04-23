@@ -4,7 +4,8 @@ import Preloader from "../../common/Preloader/Preloader";
 import userImg from '../../../img/userImg.png'
 import ProfileStatusWithHook from "./ProfileStatusрHook";
 import ProfileDataForm from "./ProfileDataForm";
-import {createFields, Input} from "../../common/FormsControls/FormsControls";
+import Button from "@material-ui/core/Button";
+import EditIcon from "@material-ui/icons/Edit";
 
 
 const ProfileInfo = (props) => {
@@ -30,8 +31,11 @@ const ProfileInfo = (props) => {
         <div>
             <div>
                 <img src='http://rk.karelia.ru/wp-content/uploads/2016/05/More.jpg'></img>
-                {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
             </div>
+            {props.isOwner &&
+            <div>
+                <input type={"file"} onChange={onMainPhotoSelected}/>
+            </div>}
             <div className={classes.descriptionBlock}>
                 <img src={(props.profile.photos.large == null ? userImg : props.profile.photos.large)}
                      className={classes.photo}/>
@@ -50,7 +54,12 @@ const ProfileInfo = (props) => {
 const ProfileData = (props) => {
     return <div>
         {props.isOwner && <div>
-            <button onClick={props.editeModeEctiveted}>edit</button>
+            <Button
+                variant={"contained"}
+                startIcon={<EditIcon/>}
+                size={"small"}
+
+                onClick={props.editeModeEctiveted}>edit</Button>
         </div>}
         <div>
             <b>Name</b> - {props.profile.fullName}
@@ -80,7 +89,7 @@ const ProfileData = (props) => {
 }
 
 
- const Contact = ({contactTitle, contactValue}) => {
+const Contact = ({contactTitle, contactValue}) => {
     return <div><b>{contactTitle}</b>: {contactValue}</div>
 }
 

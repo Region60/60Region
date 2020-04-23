@@ -3,10 +3,16 @@ import classes from "./ProfileInfo.module.css";
 import style from "./../../common/FormsControls/FormsControls.module.css";
 import {createFields, Input, Textarea} from "../../common/FormsControls/FormsControls";
 import {reduxForm} from "redux-form";
+import SaveRoundedIcon from "@material-ui/icons/SaveRounded";
+import Button from "@material-ui/core/Button";
 
 const ProfileDataForm = ({handleSubmit,profile, error}) => {
     return <form onSubmit={handleSubmit}>
-        <div><button onClick={()=> {}}>save</button></div>
+        <div><Button
+            variant={"contained"}
+            startIcon={<SaveRoundedIcon/>}
+            size={"small"}
+            onClick={()=> {}}>save</Button></div>
         {error&&<div className={style.formSummaryError}>{error}</div> }
         <div>
             <b>Full Name</b> : {createFields("Full name", "fullName", [], Input)}
