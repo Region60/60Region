@@ -10,14 +10,22 @@ import EditIcon from "@material-ui/icons/Edit";
 
 const ProfileInfo = (props) => {
     let [editMode, setEditMode] = useState(false)
+    let [editModePhoto, setEditModePhoto] = useState(false)
     if (!props.profile) {
         return <Preloader/>
     }
     const onMainPhotoSelected = (e) => {
         if (e.target.files.length) {
             props.savePhoto(e.target.files[0])
+            setEditModePhoto(false)
         }
+
     }
+
+    const showEditModePhoto = () => {
+        setEditModePhoto(true)
+    }
+
 
     const onSubmit = (formData) => {
         props.saveProfile(formData).then(
@@ -32,13 +40,16 @@ const ProfileInfo = (props) => {
             <div>
                 <img src='http://rk.karelia.ru/wp-content/uploads/2016/05/More.jpg'></img>
             </div>
-            {props.isOwner &&
-            <div>
-                <input type={"file"} onChange={onMainPhotoSelected}/>
-            </div>}
+
             <div className={classes.descriptionBlock}>
-                <img src={(props.profile.photos.large == null ? userImg : props.profile.photos.large)}
-                     className={classes.photo}/>
+                {!editModePhoto ?
+                    <img src={(props.profile.photos.large == null ? userImg : props.profile.photos.large)}
+                         className={classes.photo} onClick={() => {
+                        showEditModePhoto(true)
+                    }}/>
+                    :
+                    props.isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>
+                }
                 {editMode ?
                     <ProfileDataForm initialValues={props.profile} onSubmit={onSubmit} profile={props.profile}
                                      status={props.status} updateStatus={props.updateStatus}/>
