@@ -2,15 +2,13 @@ import React, {useState} from 'react';
 import classes from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
 import userImg from '../../../img/userImg.png'
-import ProfileStatusWithHook from "./ProfileStatusрHook";
+import ProfileStatusWithHook from "./ProfileStatusWithHook";
 import ProfileDataForm from "./ProfileDataForm";
-import Button from "@material-ui/core/Button";
-import EditIcon from "@material-ui/icons/Edit";
-
+import {createFields, Input} from "../../common/FormsControls/FormsControls";
 
 const ProfileInfo = (props) => {
     let [editMode, setEditMode] = useState(false)
-    let [editModePhoto, setEditModePhoto] = useState(false)
+    let [editeModePhoto, setEditModePhoto] = useState(false)
     if (!props.profile) {
         return <Preloader/>
     }
@@ -19,13 +17,7 @@ const ProfileInfo = (props) => {
             props.savePhoto(e.target.files[0])
             setEditModePhoto(false)
         }
-
     }
-
-    const showEditModePhoto = () => {
-        setEditModePhoto(true)
-    }
-
 
     const onSubmit = (formData) => {
         props.saveProfile(formData).then(
@@ -34,7 +26,6 @@ const ProfileInfo = (props) => {
             }
         )
     }
-
     return (
         <div>
             <div>
@@ -42,14 +33,13 @@ const ProfileInfo = (props) => {
             </div>
 
             <div className={classes.descriptionBlock}>
-                {!editModePhoto ?
-                    <img src={(props.profile.photos.large == null ? userImg : props.profile.photos.large)}
-                         className={classes.photo} onClick={() => {
-                        showEditModePhoto(true)
-                    }}/>
-                    :
-                    props.isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>
-                }
+                <img src={props.profile.photos.large == null ? userImg : props.profile.photos.large}
+                     className={classes.photo} onClick={()=>setEditModePhoto(true)}/>
+                {editeModePhoto &&
+                props.isOwner &&
+                <div>
+                    <input type={"file"} onChange={onMainPhotoSelected}/>
+                </div>}
                 {editMode ?
                     <ProfileDataForm initialValues={props.profile} onSubmit={onSubmit} profile={props.profile}
                                      status={props.status} updateStatus={props.updateStatus}/>
@@ -65,12 +55,7 @@ const ProfileInfo = (props) => {
 const ProfileData = (props) => {
     return <div>
         {props.isOwner && <div>
-            <Button
-                variant={"contained"}
-                startIcon={<EditIcon/>}
-                size={"small"}
-
-                onClick={props.editeModeEctiveted}>edit</Button>
+            <button onClick={props.editeModeEctiveted}>edit</button>
         </div>}
         <div>
             <b>Name</b> - {props.profile.fullName}

@@ -18,7 +18,7 @@ let initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
-    switch (action.type) {
+        switch (action.type) {
 
         case ADD_POST:
             let newPost = {message: action.newPostText, likesCount: 0};
@@ -49,7 +49,7 @@ export const setUserProfile = (profile) => {
     return {type: SET_USER_PROFILE, profile: profile}
 }
 export const savePhotoSucsess = (photos) => {
-    return {type: SAVE_PHOTO, profile: photos}
+    return {type: SAVE_PHOTO, photos: photos}
 }
 
 
@@ -76,8 +76,8 @@ export const updateStatus = (status) => async (dispatch) => {
     }
 }
 
-export const savePhoto = (file) => async (dispatch) => {
-    let response = await profileAPI.savePhoto(file)
+export const savePhoto = (photos) => async (dispatch) => {
+    let response = await profileAPI.savePhoto(photos)
 
     if (response.data.resultCode === 0) {
         dispatch(savePhotoSucsess(response.data.data.photos
