@@ -3,7 +3,12 @@ img {
     border-radius: 10px;
 }
 .descriptionBlock{
-    padding-left: 19px;
+    margin: 10px 100px 10px 100px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+
+
 }
 .contactsUser {
     background-color: white;
@@ -18,5 +23,8 @@ img {
 }
 
 .contacts {
-    padding-left: 20px;
+    padding-left: 10px;
+}
+.profileStatus {
+    margin: 0px 0px 20px;
 }

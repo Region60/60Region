@@ -13,7 +13,7 @@ let initialState = {
     captchaUrl: null
 }
 const authReducer = (state = initialState, action) => {
-    switch (action.type) {
+        switch (action.type) {
         case SET_USER_DATE:
         case SET_CAPTCHA_URL:
 

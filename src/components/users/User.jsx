@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Users.module.css'
 import userImg from '../../img/userImg.png'
 import {NavLink} from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 let User = ({user, followingIsProgress, unfollow, follow}) => {
 
@@ -15,16 +16,20 @@ let User = ({user, followingIsProgress, unfollow, follow}) => {
             </div>
             <div>
                 {user.followed
-                    ? <button disabled={followingIsProgress
+                    ? <Button
+                        variant={"contained"}
+                        size={"small"} disabled={followingIsProgress
                         .some(id => id === user.id)}
                               onClick={() => {
                                   unfollow(user.id)
                               }}>
-                        unfollow</button>
-                    : <button disabled={followingIsProgress.some(id => id === user.id)}
+                        unfollow</Button>
+                    : <Button
+                        variant={"contained"}
+                        size={"small"} disabled={followingIsProgress.some(id => id === user.id)}
                               onClick={() => {
                                   follow(user.id)
-                              }}>follow</button>}
+                              }}>follow</Button>}
             </div>
         </div>
         <div>
