@@ -4,7 +4,6 @@ import Post from './Post/Post';
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../utiles/validators.js";
 import {Textarea} from "../../common/FormsControls/FormsControls.js";
-import Button from "@material-ui/core/Button";
 
 let maxLength10 = maxLengthCreator(10);
 
@@ -15,9 +14,7 @@ let AddNewPostForm = (props) => {
                 <Field name='newPostText' component={Textarea} validate={[required, maxLength10]} placeholder={'Post message'} />
             </div>
             <div className={classes.button}>
-                <Button
-                    variant={"contained"}
-                    size={"small"}>Send</Button>
+                <button>Send</button>
             </div>
         </form>
     )
