@@ -18,6 +18,7 @@ let initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
+    debugger
     switch (action.type) {
 
         case ADD_POST:
@@ -49,7 +50,7 @@ export const setUserProfile = (profile) => {
     return {type: SET_USER_PROFILE, profile: profile}
 }
 export const savePhotoSucsess = (photos) => {
-    return {type: SAVE_PHOTO, profile: photos}
+    return {type: SAVE_PHOTO, photos: photos}
 }
 
 
