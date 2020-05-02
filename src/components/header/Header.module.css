@@ -1,17 +1,38 @@
 .header {
-  grid-area: h;
-  background-color: #a2c2d2;
-  margin-bottom: 5px;
-  border-radius: 0px 0px 10px 10px;
-}   
+    grid-area: h;
+    display: grid;
+    grid-template-areas: 'img name login';
+    grid-template-columns: 70px 1fr 1fr;
+    background-color: #a2c2d2;
+    margin-bottom: 5px;
+    border-radius: 0px 0px 10px 10px;
+}
 
 .header img {
-  width: 55px;
- }
+    width: 55px;
+}
+
+.headerImg {
+    grid-area: img;
+}
+
+.headerName {
+    margin-left: 20px;
+    grid-area: name;
+    font-size: 50px;
+    color: white;
+    justify-content: end;
+    align-items: end;
+
+}
+
 .loginBlock {
-  float: right;
+    grid-area: login;
+  margin: 5px 5px;
+    justify-self: end;
+    align-items: end;
 }
 
 .loginBlock a {
-  color: white;
+    color: white;
 }

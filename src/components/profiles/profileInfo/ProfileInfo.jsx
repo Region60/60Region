@@ -4,7 +4,6 @@ import Preloader from "../../common/Preloader/Preloader";
 import userImg from '../../../img/userImg.png'
 import ProfileStatusWithHook from "./ProfileStatusWithHook";
 import ProfileDataForm from "./ProfileDataForm";
-import {createFields, Input} from "../../common/FormsControls/FormsControls";
 
 const ProfileInfo = (props) => {
     let [editMode, setEditMode] = useState(false)
@@ -28,11 +27,11 @@ const ProfileInfo = (props) => {
     }
     return (
         <div>
-            <div>
-                <img src='http://rk.karelia.ru/wp-content/uploads/2016/05/More.jpg'></img>
-            </div>
+            {/*<div>*/}
+            {/*    <img src='http://rk.karelia.ru/wp-content/uploads/2016/05/More.jpg'></img>*/}
+            {/*</div>*/}
 
-            <div className={classes.descriptionBlock}>
+            <div className={classes.descriptionBlock} onClick={()=>editeModePhoto && setEditModePhoto(false)}>
                 <img src={props.profile.photos.large == null ? userImg : props.profile.photos.large}
                      className={classes.photo} onClick={()=>setEditModePhoto(true)}/>
                 {editeModePhoto &&
@@ -53,14 +52,16 @@ const ProfileInfo = (props) => {
 }
 
 const ProfileData = (props) => {
-    return <div>
-        {props.isOwner && <div>
+    return <div className={classes.info}>
+        {props.isOwner && <div >
             <button onClick={props.editeModeEctiveted}>edit</button>
         </div>}
         <div>
             <b>Name</b> - {props.profile.fullName}
         </div>
+        <div className={classes.status}>
         <ProfileStatusWithHook status={props.status} updateStatus={props.updateStatus}/>
+        </div>
         <div>
             <b>Lookink for a job</b>: {props.profile.lookingForAJob}
         </div>
@@ -80,13 +81,12 @@ const ProfileData = (props) => {
                 })}
             </div>
         </div>
-        ava - description
     </div>
 }
 
 
 const Contact = ({contactTitle, contactValue}) => {
-    return <div><b>{contactTitle}</b>: {contactValue}</div>
+    return <div ><b>{contactTitle}</b>: {contactValue}</div>
 }
 
 export default ProfileInfo;
