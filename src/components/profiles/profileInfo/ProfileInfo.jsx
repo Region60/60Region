@@ -27,13 +27,13 @@ const ProfileInfo = (props) => {
     }
     return (
         <div>
-            <div>
-                <img src='http://rk.karelia.ru/wp-content/uploads/2016/05/More.jpg'></img>
-            </div>
+            {/*<div>*/}
+            {/*    <img src='http://rk.karelia.ru/wp-content/uploads/2016/05/More.jpg'></img>*/}
+            {/*</div>*/}
 
-            <div className={classes.descriptionBlock}>
+            <div className={classes.descriptionBlock} onClick={() => editeModePhoto && setEditModePhoto(false)}>
                 <img src={props.profile.photos.large == null ? userImg : props.profile.photos.large}
-                     className={classes.photo} onClick={()=>setEditModePhoto(true)}/>
+                     className={classes.photo} onClick={() => setEditModePhoto(true)}/>
                 {editeModePhoto &&
                 props.isOwner &&
                 <div>
@@ -52,14 +52,16 @@ const ProfileInfo = (props) => {
 }
 
 const ProfileData = (props) => {
-    return <div>
+    return <div className={classes.info}>
         {props.isOwner && <div>
             <button onClick={props.editeModeEctiveted}>edit</button>
         </div>}
         <div>
             <b>Name</b> - {props.profile.fullName}
         </div>
-        <ProfileStatusWithHook status={props.status} updateStatus={props.updateStatus}/>
+        <div className={classes.status}>
+            <ProfileStatusWithHook status={props.status} updateStatus={props.updateStatus}/>
+        </div>
         <div>
             <b>Lookink for a job</b>: {props.profile.lookingForAJob}
         </div>
@@ -72,14 +74,15 @@ const ProfileData = (props) => {
         </div>
         <div className={classes.contactsUser}>
             <b>Contacts</b>:
-            <div className={classes.contacts}>
-                {Object.keys(props.profile.contacts).map(key => {
-                    return <Contact key={key} contactTitle={key}
-                                    contactValue={props.profile.contacts[key]}/>
-                })}
+            <div className={classes.line}>
+                <div className={classes.contacts}>
+                    {Object.keys(props.profile.contacts).map(key => {
+                        return <Contact key={key} contactTitle={key}
+                                        contactValue={props.profile.contacts[key]}/>
+                    })}
+                </div>
             </div>
         </div>
-        ava - description
     </div>
 }
 

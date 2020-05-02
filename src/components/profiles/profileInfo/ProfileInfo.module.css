@@ -2,16 +2,15 @@ img {
     margin: 10px;
     border-radius: 10px;
 }
-.descriptionBlock{
+
+.descriptionBlock {
     padding-left: 19px;
 }
+
 .contactsUser {
-    background-color: white;
     padding: 10px;
-    border-radius: 10px;
-    border-color: black;
-    border-width: 1px;
 }
+
 .photo {
     width: 100px;
     height: 100px;
@@ -19,4 +18,23 @@ img {
 
 .contacts {
     padding-left: 20px;
+}
+
+.info {
+    margin: 10px 0px 10px 0px;
+    width: 500px;
+    background-color: white;
+    padding: 10px;
+}
+
+.line{
+border-top: black solid 1px
+}
+
+.status {
+    margin: 5px 0px;
+    width: 150px;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+
 }
