@@ -4,7 +4,6 @@ import Preloader from "../../common/Preloader/Preloader";
 import userImg from '../../../img/userImg.png'
 import ProfileStatusWithHook from "./ProfileStatusWithHook";
 import ProfileDataForm from "./ProfileDataForm";
-import {createFields, Input} from "../../common/FormsControls/FormsControls";
 
 const ProfileInfo = (props) => {
     let [editMode, setEditMode] = useState(false)
@@ -16,7 +15,7 @@ const ProfileInfo = (props) => {
         if (e.target.files.length) {
             props.savePhoto(e.target.files[0])
             setEditModePhoto(false)
-        }
+        }else setEditModePhoto(false)
     }
 
     const onSubmit = (formData) => {
