@@ -1,7 +1,7 @@
 import {createSelector} from "reselect";
 
 export const getUsersSelector =(state) => {  //простой селектор ,который достает из стейта юзерс и возвращает его
-    return state.usersPage.users
+     return state.usersPage.users
 }
 
 export const getUsers = createSelector(getUsersSelector, //сложный селектор

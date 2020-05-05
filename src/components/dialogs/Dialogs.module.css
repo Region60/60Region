@@ -36,3 +36,9 @@
 textarea {
     max-width: 700px;
 }
+
+
+button {
+    border-radius: 4px;
+    background-color: #5a9dd2;
+}
