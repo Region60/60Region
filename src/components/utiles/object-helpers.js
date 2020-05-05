@@ -4,5 +4,6 @@ export const updateObjectInArray = (items, itemsId, objPropName, newObjProps) =>
         if (u[objPropName] === itemsId) {
             return {...u, ...newObjProps}
         }
+        return  u
     })
 }
