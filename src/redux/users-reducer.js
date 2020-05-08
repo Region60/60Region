@@ -20,7 +20,6 @@ let initialState = {
 
 }
 const usersReducer = (state = initialState, action) => {
-    debugger
         switch (action.type) {
             case FOLLOW:
                 return {

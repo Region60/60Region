@@ -1,5 +1,4 @@
 let ADD_MESSAGE = 'ADD_MESSAGE';
-let UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
 
 let initialState = {
     messages: [
@@ -9,7 +8,6 @@ let initialState = {
         {id: 3, message: 'What?'},
         {id: 4, message: 'fck yeeee'}
     ],
-    //newMessageText: 'vtf!!!',
     dialogs: [
         {id: 1, name: 'Andrey', ava: 'src/images/igra_5063.jpg'},
         {id: 2, name: 'Vasya', ava: '../../images/igra_5664.jpg'},
