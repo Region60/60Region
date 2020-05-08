@@ -40,8 +40,9 @@ textarea {
     outline: none;
     resize: none;
     padding: 5px 10px;
-    vertical-align: bottom;
-}
+
+    vertical-align: bottom;}
+
 
 
 button {
