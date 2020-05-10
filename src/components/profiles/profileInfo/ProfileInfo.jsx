@@ -54,7 +54,7 @@ const ProfileInfo = (props) => {
 const ProfileData = (props) => {
     return <div className={classes.info}>
         {props.isOwner && <div>
-            <button  onClick={props.editeModeEctiveted}>Edit</button>
+            <button className={classes.buttonSend}  onClick={props.editeModeEctiveted}>Edit</button>
         </div>}
         <div>
             <b>Name</b> - {props.profile.fullName}

@@ -2,6 +2,10 @@
     height: 10em;
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    bottom: 50%;
 
 }
