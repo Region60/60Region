@@ -10,7 +10,7 @@ button {
   margin-bottom: 5px;
 
 }
-textarea {
+.myposts textarea {
   width: 700px;
   height: 130px;
   border-radius: 10px;

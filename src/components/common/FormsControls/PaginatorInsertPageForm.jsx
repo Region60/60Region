@@ -10,13 +10,10 @@ const maxLength4 = maxLengthCreator(4)
 const PaginatorInsertPageForm = (props) => {
     return (                                               //вешаем обработчикна форм
         <form onSubmit={props.handleSubmit}>
-            <div>
-                {createFields('№', 'PaginatorInsertPage', [required, maxLength4], Textarea)}
-            </div>
-
-            <div>
-                <button>Go</button>
-            </div>
+            <span>
+                {createFields('Page', 'PaginatorInsertPage', [required, maxLength4], Textarea)}
+            </span>
+            <button>Go</button>
         </form>
     )
 }

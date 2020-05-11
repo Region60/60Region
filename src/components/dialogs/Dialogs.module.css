@@ -33,7 +33,7 @@
     align-content: end;
 }
 
-textarea {
+.inputWindow textarea {
     width: 700px;
     height: 130px;
     border-radius: 10px;
