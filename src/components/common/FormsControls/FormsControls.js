@@ -7,12 +7,12 @@ import cn from "classnames"
 export const FormControl = ({input, meta,child, ...props}) => { //реструкторизация rest оператор
     const hasError = meta.touched && meta.error;
     return (
-        <span className={cn(styles.formControl,{[styles.error]:hasError})}>
-            <span>
+        <div className={cn(styles.formControl,{[styles.error]:hasError})}>
+            <div>
                 {props.children}
-            </span>
+            </div>
             {hasError && <span>{meta.error}</span>}
-        </span>
+        </div>
     )
 };
 
@@ -27,8 +27,8 @@ export const Input = (props) => {
 }
 
 export const createFields = (placeholder, name, validators, components, props, text ='') => (
-    <span>
+    <div>
         <Field validate={validators} placeholder={placeholder} name={name} component={components} {...props}/>
         {text}
-    </span>
+    </div>
 )
