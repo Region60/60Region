@@ -7,10 +7,10 @@ let User = ({user, followingIsProgress, unfollow, follow}) => {
 
     return <div>
 
-        <div>
+        <div className={classes.user}>
             <div>
                 <NavLink to={'/profile/' + user.id}>
-                    <img src={user.photos.small != null ? user.photos.small : userImg} className={classes.photo}/>
+                    <img src={user.photos.small != null ? user.photos.small : userImg} className={classes.photo} alt='img'/>
                 </NavLink>
             </div>
             <div>
@@ -27,7 +27,7 @@ let User = ({user, followingIsProgress, unfollow, follow}) => {
                               }}>follow</button>}
             </div>
         </div>
-        <div>
+        <div className={classes.userInfo}>
             <div>
                 <div> {user.name} </div>
                 <div> {user.status} </div>

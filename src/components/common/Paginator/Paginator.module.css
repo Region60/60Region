@@ -1,22 +1,45 @@
 .paginator {
-    margin: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: end;
+    margin: 10px 10px 40px 10px;
 }
 
 .pageNumber {
-    padding: 2px;
+    margin: 2px;
 
 }
 
 .pageNumber.selectedPage {
     font-weight: bold;
     border-color: black;
-
     font-size: 20px;
 }
 
 .inputPage textarea {
-    width: 40px;
-    height: 15px;
+    width: 44px;
+    height: 16px;
     outline: none;
     resize: none;
 }
+
+.insertPageForm {
+    margin-left: 30px;
+    align-items: end;
+
+}
+
+.insertPageForm {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+
+}
+
+.insertPageForm button {
+    width: 40px;
+    height: 21px;
+    margin-left: 3px;
+}
+
+
+

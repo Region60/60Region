@@ -1,4 +1,4 @@
-import {Field, reduxForm} from "redux-form";
+import {reduxForm} from "redux-form";
 import {createFields, Textarea} from "./FormsControls";
 import {maxLengthCreator, required} from "../../utiles/validators";
 import React from "react";

@@ -33,7 +33,7 @@ const ProfileInfo = (props) => {
 
             <div className={classes.descriptionBlock} onClick={() => editeModePhoto && setEditModePhoto(false)}>
                 <img src={props.profile.photos.large == null ? userImg : props.profile.photos.large}
-                     className={classes.photo} onClick={() => setEditModePhoto(true)}/>
+                     className={classes.photo} onClick={() => setEditModePhoto(true)} alt='img'/>
                 {editeModePhoto &&
                 props.isOwner &&
                 <div>

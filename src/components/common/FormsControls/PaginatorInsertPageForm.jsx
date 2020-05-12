@@ -1,19 +1,21 @@
 import {createFields, Textarea} from "./FormsControls";
-import {maxLengthCreator, required} from "../../utiles/validators";
 import React from "react";
 import {reduxForm} from "redux-form";
+import classes from '../Paginator/Paginator.module.css'
 
 
-const maxLength4 = maxLengthCreator(4)
+
 
 
 const PaginatorInsertPageForm = (props) => {
     return (                                               //вешаем обработчикна форм
         <form onSubmit={props.handleSubmit}>
-            <div>
-                {createFields('Page', 'PaginatorInsertPage', [required, maxLength4], Textarea)}
+            <div className={classes.insertPageForm}>
+            <div className={classes.paginatorTextarea}>
+                {createFields('Page', 'PaginatorInsertPage', [], Textarea)}
             </div>
             <button>Go</button>
+            </div>
         </form>
     )
 }

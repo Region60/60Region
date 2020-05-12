@@ -24,28 +24,29 @@ let Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, portion
     }
 
     return <div className={classes.paginator}>
-
-        {portionNumber > 1 &&
-        <button onClick={() => {
-            setPortionNumber(portionNumber - 1)
-        }}>PREV</button>}
-        {pages
-            .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
-            .map((p) => {
-                return <span className={cn({[classes.selectedPage]: currentPage == p}, classes.pageNumber)}
-                             key={p}
-                             onClick={(e) => {
-                                 onPageChanged(p)
-                             }
-                             }>{p}</span>
-            })}
-        {portionCount > portionNumber &&
-        <button onClick={() => {
-            setPortionNumber(portionNumber + 1)
-        }}>NEXT</button>}
-        <span className={classes.inputPage}>
-        <PaginatorInsertPageFormRedux onSubmit={goNumberPage}/>
-        </span>
+        <div className={classes.pagesWithButtons} >
+            {portionNumber > 1 &&
+            <button onClick={() => {
+                setPortionNumber(portionNumber - 1)
+            }}>PREV</button>}
+            {pages
+                .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
+                .map((p) => {
+                    return <span className={cn({[classes.selectedPage]: currentPage == p}, classes.pageNumber)}
+                                 key={p}
+                                 onClick={(e) => {
+                                     onPageChanged(p)
+                                 }
+                                 }>{p}</span>
+                })}
+            {portionCount > portionNumber &&
+            <button onClick={() => {
+                setPortionNumber(portionNumber + 1)
+            }}>NEXT</button>}
+        </div>
+        <div className={classes.inputPage}>
+            <PaginatorInsertPageFormRedux onSubmit={goNumberPage}/>
+        </div>
     </div>
 }
 

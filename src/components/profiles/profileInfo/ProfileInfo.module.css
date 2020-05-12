@@ -1,4 +1,4 @@
-img {
+.descriptionBlock img {
     margin: 10px;
     border-radius: 10px;
 }
@@ -38,7 +38,7 @@ border-top: black solid 1px
 
 }
 
-button {
+.info button {
     border-radius: 4px;
     background-color: #5a9dd2;
 }

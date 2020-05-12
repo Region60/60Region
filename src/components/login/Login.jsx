@@ -1,5 +1,5 @@
 import React from 'react'
-import {Field, reduxForm} from "redux-form";
+import {reduxForm} from "redux-form";
 import {createFields, Input} from "../common/FormsControls/FormsControls";
 import {required} from "../utiles/validators";
 import {connect} from "react-redux";
@@ -14,7 +14,7 @@ const LoginForm = (props) => {
                 {createFields('Password','password', [required],Input, {type:"password"})}
                 {createFields(null,'rememberMe', [],Input, {type:"checkbox"},'remember me')}
 
-            {props.captchaUrl && <img src={props.captchaUrl}/>}
+            {props.captchaUrl && <img src={props.captchaUrl} alt='img'/>}
             {props.captchaUrl && createFields("symbol from image",'captcha', [],Input, )}
 
             {props.error &&

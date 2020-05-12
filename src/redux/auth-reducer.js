@@ -1,4 +1,4 @@
-import {authAPI, securityAPI, usersAPI} from "../api/api";
+import {authAPI, securityAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
 
 let SET_USER_DATE = 'SET_USER_DATE';
