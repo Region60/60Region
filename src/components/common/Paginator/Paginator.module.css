@@ -1,7 +1,6 @@
 .paginator {
     display: grid;
     grid-template-columns: auto 1fr;
-    align-items: end;
     margin: 10px 10px 40px 10px;
 }
 
@@ -24,14 +23,9 @@
 }
 
 .insertPageForm {
+    display: flex;
+    flex-direction: row;
     margin-left: 30px;
-    align-items: end;
-
-}
-
-.insertPageForm {
-    display: grid;
-    grid-template-columns: 50px 1fr;
 
 }
 
@@ -40,6 +34,7 @@
     height: 21px;
     margin-left: 3px;
 }
+
 
 
 
