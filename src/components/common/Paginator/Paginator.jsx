@@ -17,38 +17,44 @@ let Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, portion
 
     let goNumberPage = (value) => {
         let go = value.PaginatorInsertPage
-        if (!isNaN(+go)) {
-        setPortionNumber(Math.floor(go / 10 + 1))
-        onPageChanged( + go)} else {
-            alert  (`${go} - не является числовым значением`)
+        if (isNaN(+go)) {
+            alert(`${go} - не является числовым значением.Пожалуйста введите число от 1 до ${pages.length}`)
+        } else {
+            if (+go > pages.length) {
+                alert(`число ${go} - превышает количество страниц пользователей. Пожалуйста введите число от 1 до ${pages.length}`)
+            } else {
+                setPortionNumber(Math.floor(go / 10 + 1))
+                onPageChanged(+go)
+            }
         }
     }
 
-    return <div className={classes.paginator}>
-        <div className={classes.pagesWithButtons} >
-            {portionNumber > 1 &&
-            <span onClick={() => {
-                setPortionNumber(portionNumber - 1)
-            }}>. . . </span>}
-            {pages
-                .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
-                .map((p) => {
-                    return <span className={cn({[classes.selectedPage]: currentPage === p}, classes.pageNumber)}
-                                 key={p}
-                                 onClick={(e) => {
-                                     onPageChanged(p)
-                                 }
-                                 }>{p}</span>
-                })}
-            {portionCount > portionNumber &&
-            <span onClick={() => {
-                setPortionNumber(portionNumber + 1)
-            }}> . . .</span>}
-        </div>
-        <div className={classes.inputPage}>
-            <PaginatorInsertPageFormRedux onSubmit={goNumberPage}/>
-        </div>
+
+return <div className={classes.paginator}>
+    <div className={classes.pagesWithButtons}>
+        {portionNumber > 1 &&
+        <span onClick={() => {
+            setPortionNumber(portionNumber - 1)
+        }}>. . . </span>}
+        {pages
+            .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
+            .map((p) => {
+                return <span className={cn({[classes.selectedPage]: currentPage === p}, classes.pageNumber)}
+                             key={p}
+                             onClick={(e) => {
+                                 onPageChanged(p)
+                             }
+                             }>{p}</span>
+            })}
+        {portionCount > portionNumber &&
+        <span onClick={() => {
+            setPortionNumber(portionNumber + 1)
+        }}> . . .</span>}
     </div>
+    <div className={classes.inputPage}>
+        <PaginatorInsertPageFormRedux onSubmit={goNumberPage}/>
+    </div>
+</div>
 }
 
 
