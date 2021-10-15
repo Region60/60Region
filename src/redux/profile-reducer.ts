@@ -8,16 +8,44 @@ let SET_STATUS = 'SET_STATUS';
 let DELETE = 'DELETE';
 let SAVE_PHOTO = 'SAVE_PHOTO'
 
+type PostsType = {
+    id: number
+    message: string
+    likesCount: number
+}
+type ContactsType = {
+    github: string
+    vk: string
+    facebook: string
+    instagram: string
+    twitter: string
+    website: string
+    youtube: string
+    mainLink: string
+}
+type PhotosType = {
+    small: string|null
+    large: string|null
+}
+type ProfileTypes = {
+userId: number
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    fullName: string
+    contakts: ContactsType
+    photos: PhotosType
+}
 
 let initialState = {
     posts: [
         {id: 1, message: 'Hello', likesCount: 12},
-        {id: 2, message: 'It\'s my first post', likesCount: 4}],
-    profile: null,
+        {id: 2, message: 'It\'s my first post', likesCount: 4}
+        ] as Array<PostsType>,
+    profile: null as PhotosType | null,
     status: "!!!!!!!"
 };
-
-const profileReducer = (state = initialState, action) => {
+export type InitialStateType = typeof initialState
+const profileReducer = (state = initialState, action:any) => {
         switch (action.type) {
 
         case ADD_POST:
