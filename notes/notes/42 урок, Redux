@@ -1,0 +1,18 @@
+
+Устанавливаем Redux - npm install redux --save
+Создаем файл редакса, который будет создавать store - функция createStore (), создаем импорты
+В качестве аргументов отдаем этой функции, функцию объединяющую reduce.
+Передающуюих их в качестве объекта - {profilePage: profileReducer,
+                                      messagesPage: dialogReducer}
+В index.js подменяем наш store  на реактовский.
+В Редюсах надо создать инициализирующий стейт
+
+Редаксовский стор не передает state когда уведомляет подписчиков, поэтму мы должны ему его передать.
+поэтому в index.js м
+
+ы передаем нашему стору анонимную функцию, которая вызывает rerenderEntireTree c аргументом state
+
+store.subscribe (()=>{
+    let state = store.getState ()
+    rerenderEntireTree(state)
+});

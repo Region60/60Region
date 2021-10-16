@@ -1,0 +1,16 @@
+
+Пишем тест. Размещаем в той же директории что и тестируемый элемент.
+Тестируем редюсер, задача еста выявить ошибки.
+создаем функцию"
+
+it(`after deleting length of messages shold de decrement`, () => {
+    let action = deletePost(1)
+
+    let newState = profileReducer(state, action)
+
+    expect (newState.posts.length).toBe(1) // expect сравниваетсяс то toBe
+
+})
+
+запускать дебагер можно прям в  вебшторме, для этого надо поставить точку остановки и нажать дебак в меню
+на против функции теста

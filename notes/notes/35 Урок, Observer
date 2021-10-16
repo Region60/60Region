@@ -1,0 +1,5 @@
+
+
+Удаляем файл render, функцию из него пекреносим в index.js
+Чтобы не было цикличности создаем в state.js функцию subscribe, которая передает функцию rerenderEntireTree из файла index.js
+ в файл state.js

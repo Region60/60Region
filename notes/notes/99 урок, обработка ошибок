@@ -1,0 +1,5 @@
+
+В  компоненте Апп в методе componentDidMount() добавляем обработку ошибок подписку:
+window.addEventListener ("unhandledrejection", function(promiseRejectionEvent)
+Так же необходимо сделать отписку, в методе componentWillUnmount()
+window.removeEventListener ("unhandledrejection", function(promiseRejectionEvent)

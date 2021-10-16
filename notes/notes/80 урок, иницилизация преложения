@@ -1,0 +1,8 @@
+Из компоненты containerHeader выносим componentDidMount в App и оборачиваем App compose.
+Создаем app-reducer, который будет показывать инициализированно приложение или нет. В нем
+создаем thunk, которя будет менять initialized: false на true , когда придет ответ от запросов, для
+этого в auth-reducers в функции getAuthUserData перед запросом ставим return. Получается нам будет возвращен проми,
+ потому что .then всегда возвращает промис.
+
+Из app в componentDidMount выносим getAuthUserData в app-reducers, а вместо него будет исполнятся initializeApp.
+Тем самым когда будет запускаться метод, будет происходить инициализация преложения.

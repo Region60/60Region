@@ -1,0 +1,11 @@
+
+Необходимо сделать так чтобы кнопка (foolow/unfollow) становилась неактивной, пока идет запрос на сервер
+В редусере создаем функцию  которая возвращает объект содержащий action, idUser и fetching.
+Создаем case который если у нас есть подписка action.isFetching TRUE), добавляет в масив followingInProgress id юзера
+а если нет то пропускает все id которые не равны id  пользователя (followingInProgress.filter(id=>!=action.userId)
+
+Массив это псевдоистина.
+Поэтому в обработчике кнопки disabled, для массива followingInProgress используем метод some.
+
+followingInProgress.some(id=>id==u.id) //если в массиве followingInProgress есть хоть одна id которая соответтствуе
+id юзера то возвращаем true

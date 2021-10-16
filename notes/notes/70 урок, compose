@@ -1,0 +1,8 @@
+Compose (2)(1) // 1 - вызывается функция, 2 - вызывается  функция, которую вернул первый вызов
+
+export default compose (connect(mapStateToProps, mapDispatchToProps)
+(AuthRedirectComponent),
+    withAuthRedirect)
+     (Dialogs)// dialogs передается в withAuthRedirect, а результат передается в
+     connect(mapStateToProps, mapDispatchToProps)
+     (AuthRedirectComponent)

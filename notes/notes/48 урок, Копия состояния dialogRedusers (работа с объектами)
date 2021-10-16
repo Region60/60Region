@@ -1,0 +1,36 @@
+
+
+Копирование и одновременное присваивание нового значание в подобъекте
+
+было:
+ let stateCopy = {...state}
+ stateCopy.newMessageText = action.newText;
+
+ стало:
+ let stateCopy = {
+ ...state,                          // создаем объект и копируем в него state
+ newMessageText:action.newText      // присваеваем новое значание свойству newMessageText
+ }
+
+замена оператора push,
+было:
+messages: [
+        {id: 0, message: 'Hi'},
+        {id: 1, message: 'How are you?'},
+        {id: 2, message: 'Norm, a 4e?'},
+        {id: 3, message: 'What?'},
+        {id: 4, message: 'fck yeeee'}
+    ],
+messagesCopy = [...messages];
+messagesCopy.push({id: 5, message: 'oh noooo'};
+
+стало:
+messagesCopy = [{id: 5, message: 'oh noooo'},...messages];    //в начало массива(объекта)
+messagesCopy = [...messages,{id: 5, message: 'oh noooo'}];    //в конец массива
+
+Копирование массива с заменой какого-то элемента спомощью метода map (возвращает новый массив на основе старого массива)
+let stateCopy = {
+...state,
+users: state.users.map (callbackfn u => u)   //
+}
+

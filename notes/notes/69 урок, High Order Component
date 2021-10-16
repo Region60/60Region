@@ -1,0 +1,6 @@
+
+HOC - High Order Component - компонента высшего порядка.
+
+HOC - принимает в себя component и возвращает containerComponent
+HOC - называют с приставкой with - "с".
+withAuthRedirect - с authRedirect
