@@ -1,3 +1,4 @@
+
 let ADD_MESSAGE = 'ADD_MESSAGE';
 
 type DialogType = {
