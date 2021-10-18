@@ -16,13 +16,26 @@ import {
     getPageSize,
     getTotalUsersCount, getUsers
 } from "../../redux/user-selectors";
+import {isNumber} from "util";
+import {UsersType} from "../../types/type";
 
-class UsersContainer extends React.Component {
+type PropsType = {
+    currentPage: number
+    pageSize: number
+    getUsers:(currentPage: number, pageSize: number)=> void
+    totalUsersCount:number
+    users: Array<UsersType>
+    followingInProgress:Array<number>
+    unfollow: ()=> void
+    followw: ()=> void
+
+}
+class UsersContainer extends React.Component<PropsType> {
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize)
     }
 
-    onPageChanged = (pageNumber) => {
+    onPageChanged = (pageNumber:number) => {
         this.props.getUsers(pageNumber, this.props.pageSize)
     }
 
