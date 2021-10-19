@@ -12,9 +12,7 @@ let TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 let TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS'
 
 
-type FollowingIsProgress = {
 
-}
 
 let initialState = {
     users: [] as Array<UsersType>,
