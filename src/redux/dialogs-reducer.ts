@@ -1,12 +1,12 @@
 
 let ADD_MESSAGE = 'ADD_MESSAGE';
 
-type DialogType = {
+ type MessageType = {
     id: number
     message: string
 }
 
-type MessageType = {
+export type DialogsType = {
     id: number
     name: string
     ava: string
@@ -18,14 +18,14 @@ let initialState = {
         {id: 2, message: 'Norm, a 4e?'},
         {id: 3, message: 'What?'},
         {id: 4, message: 'fck yeeee'}
-    ] as Array<DialogType>,
+    ] as Array<MessageType>,
     dialogs: [
         {id: 1, name: 'Andrey', ava: 'src/images/igra_5063.jpg'},
         {id: 2, name: 'Vasya', ava: '../../images/igra_5664.jpg'},
         {id: 3, name: 'Fedor', ava: 'http://localhost:3000/src/images/igra_mech_Assassins_Creed_21984.jpg'},
         {id: 4, name: 'Valera', ava: '../../images/igra_pistolet_11094.jpg'},
         {id: 5, name: 'Max', ava: '../../images/Mortal_Kombat_34217.jpg'}
-    ] as Array<MessageType>
+    ] as Array<DialogsType>
 }
 type InitialStateType = typeof initialState
 const dialogReducer = (state = initialState, action: any) => {
