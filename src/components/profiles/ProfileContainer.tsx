@@ -5,8 +5,25 @@ import {withRouter} from "react-router-dom";
 import {getStatus, getUserProfile, savePhoto, saveProfile, updateStatus} from "../../redux/profile-reducer";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {ProfileTypes} from "../../types/type";
+import {AppStateType} from "../../redux/reduxStore";
 
-class ProfileContainer extends React.Component {
+
+
+type PropsType = {
+    authorizedUserId : () => void
+    history: any
+    getUserProfile: (userId:number) => void
+    getStatus: (userId:number)=> void
+    match: any
+    profile: ProfileTypes
+    status: string
+    updateStatus: ()=> void
+    savePhoto: () => void
+}
+
+
+class ProfileContainer extends React.Component<PropsType> {
     refreshProfile() {
         let userId = this.props.match.params.userId;
         if (!userId) {
@@ -43,7 +60,7 @@ class ProfileContainer extends React.Component {
 }
 
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state: AppStateType) => ({
     profile: state.profilePage.profile,
     status: state.profilePage.status,
     authorizedUserId: state.auth.userId,

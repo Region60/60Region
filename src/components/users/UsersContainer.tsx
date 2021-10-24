@@ -31,7 +31,7 @@ type MapDispatchPropsType = {
     unfollow: (userId: number) => void
     follow: (userId: number) => void
 }
-type PropsType = MapStatePropsType & MapDispatchPropsType &  OwnPropsType
+export type PropsType = MapStatePropsType & MapDispatchPropsType &  OwnPropsType
 
 type  OwnPropsType = {
     pageTitle:string
