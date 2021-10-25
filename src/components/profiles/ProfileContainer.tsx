@@ -9,21 +9,25 @@ import {ProfileTypes} from "../../types/type";
 import {AppStateType} from "../../redux/reduxStore";
 
 
+type MapStatePropsType = {
+    status: string
+    captchaUrl: string | null
+    profile: ProfileTypes
+    userId: number | null
+    history:Array<string>
+}
 
-type PropsType = {
+type MapDispatchPropsType = {
     authorizedUserId : () => void
-    history: any
     getUserProfile: (userId:number) => void
     getStatus: (userId:number)=> void
     match: any
-    profile: ProfileTypes
-    status: string
     updateStatus: ()=> void
     savePhoto: () => void
 }
 
 
-class ProfileContainer extends React.Component<PropsType> {
+class ProfileContainer extends React.Component<MapStatePropsType & MapDispatchPropsType> {
     refreshProfile() {
         let userId = this.props.match.params.userId;
         if (!userId) {
@@ -42,7 +46,7 @@ class ProfileContainer extends React.Component<PropsType> {
         this.refreshProfile()
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
+    componentDidUpdate(prevProps:any, prevState:any, snapshot:any) {
         if (this.props.match.params.userId !== prevProps.match.params.userId) {
             this.refreshProfile()
         }
@@ -60,7 +64,7 @@ class ProfileContainer extends React.Component<PropsType> {
 }
 
 
-let mapStateToProps = (state: AppStateType) => ({
+let mapStateToProps = (state: any): MapStatePropsType => ({
     profile: state.profilePage.profile,
     status: state.profilePage.status,
     authorizedUserId: state.auth.userId,
