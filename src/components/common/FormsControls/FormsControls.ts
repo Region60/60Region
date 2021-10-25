@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './FormsControls.module.css';
 import {Field} from "redux-form";
 import cn from "classnames"
+import {FieldValidatorType} from "../../utiles/validators";
 
 
 export const FormControl = ({input, meta,child, ...props}) => { //реструкторизация rest оператор
@@ -26,7 +27,7 @@ export const Input = (props) => {
     return <FormControl {...props}><input {...input} {...restProps}/></FormControl>
 }
 
-export const createFields = (placeholder, name, validators, components, props, text ='') => (
+export const createFields = (placeholder: string, name: string, validators: Array<FieldValidatorType>, components, props, text ='') => (
     <div>
         <Field validate={validators} placeholder={placeholder} name={name} component={components} {...props}/>
         {text}

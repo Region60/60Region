@@ -1,7 +1,7 @@
 
 let ADD_MESSAGE = 'ADD_MESSAGE';
 
- type MessageType = {
+export type MessageType = {
     id: number
     message: string
 }

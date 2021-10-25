@@ -17,7 +17,7 @@ let initialState = {
         {id: 2, message: 'It\'s my first post', likesCount: 4}
     ] as Array<PostsType>,
     profile: null as PhotosType | null,
-    status: "!!!!!!!"
+    status: "!!!!!!!" as string | null
 };
 export type InitialStateType = typeof initialState
 const profileReducer = (state = initialState, action: any) => {
