@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Settings = (props) => {
+const Settings: React.FC  = () => {
     return(
     <div>
         SetingsSetingsSetingsSetingsSetingsSetingsSetingsSetings
