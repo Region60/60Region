@@ -18,6 +18,10 @@ type MapStatePropsType = {
 type MapDispatchPropsType = {
     login: (email: string, password: string, rememberMe: boolean, captcha: string) => void
 }
+type LoginFormOwnProps = {
+    captchaUrl: string | null
+
+}
 
 type LoginFormValueType = {
     captcha: string
@@ -26,17 +30,14 @@ type LoginFormValueType = {
     password:string
 }
 
-type LoginFormOwnProps = {
-    captchaUrl: string | null
-
-}
+type LoginFormValueTypeKeys = Extract<keyof LoginFormValueType, string>
 
 const LoginForm: React.FC<InjectedFormProps<LoginFormValueType, LoginFormOwnProps> & LoginFormOwnProps>  = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            {createFields('Email', 'email', [required], Input,{})}
-            {createFields('Password', 'password', [required], Input, {type: "password"})}
-            {createFields(null,'rememberMe', [],Input, {type:"checkbox"},'remember me')}
+            {createFields<LoginFormValueTypeKeys>('Email', "email", [required], Input,{})}
+            {createFields<LoginFormValueTypeKeys>('Password', 'password', [required], Input, {type: "password"})}
+            {createFields<LoginFormValueTypeKeys>(undefined,'rememberMe', [],Input, {type:"checkbox"},'remember me')}
 
             {props.captchaUrl && <img src={props.captchaUrl} alt='img'/>}
             {props.captchaUrl && createFields("symbol from image", 'captcha', [], Input,{})}
