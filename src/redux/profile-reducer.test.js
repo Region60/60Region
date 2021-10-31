@@ -1,5 +1,6 @@
-import {profileAPI, usersAPI} from "../api/api";
 import profileReducer, {addPostActionCreator, deletePost} from "./profile-reducer";
+import {usersAPI} from "../api/user-api";
+import {profileAPI} from "../api/profile-api";
 
 let state = {
     posts: [

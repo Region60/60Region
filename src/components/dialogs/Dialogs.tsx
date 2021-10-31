@@ -5,12 +5,31 @@ import Message from "./message/Message";
 import {Redirect} from "react-router-dom";
 import AddMessageFormRedux from "../common/FormsControls/AddMessageForm";
 
+type DialogType = {
+    name:string
+    id:number
+    ava:string
+}
+type MessagesType = {
+    id: number
+    message: string
+}
 
-const Dialogs = (props) => {
+type DialogsType = {
+    dialogs: Array<DialogType>
+    messages:Array<MessagesType>
+}
+type dialogsPropsType= {
+    dialogsPage: DialogsType
+    newMessage:(value:any) => void
+    isAuth:boolean
+}
+
+const Dialogs: React.FC<dialogsPropsType> = (props) => {
     let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id}
                                                                          ava={d.ava}/>)
 
-    let addNewMessage = (value) => {                //принимает объект собранные из формы, а называться свойства будут
+    let addNewMessage = (value:any) => {                //принимает объект собранные из формы, а называться свойства будут
         props.newMessage(value.newMessageText);    // как name  у Field Field и передает его в ectionCreator
     }
 

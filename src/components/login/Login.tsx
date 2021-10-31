@@ -12,7 +12,6 @@ import {AppStateType} from "../../redux/reduxStore";
 type MapStatePropsType = {
     isAuth: boolean
     captchaUrl: string | null
-
 }
 
 type MapDispatchPropsType = {
@@ -20,7 +19,6 @@ type MapDispatchPropsType = {
 }
 type LoginFormOwnProps = {
     captchaUrl: string | null
-
 }
 
 type LoginFormValueType = {

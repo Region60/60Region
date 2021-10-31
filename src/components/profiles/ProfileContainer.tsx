@@ -10,8 +10,7 @@ import {AppStateType} from "../../redux/reduxStore";
 
 
 type MapStatePropsType = {
-    status: string
-    captchaUrl: string | null
+    status: string | null
     profile: ProfileTypes
     userId: number | null
     history:Array<string>
@@ -64,7 +63,7 @@ class ProfileContainer extends React.Component<MapStatePropsType & MapDispatchPr
 }
 
 
-let mapStateToProps = (state: any): MapStatePropsType => ({
+let mapStateToProps = (state: AppStateType): MapStatePropsType => ({
     profile: state.profilePage.profile,
     status: state.profilePage.status,
     authorizedUserId: state.auth.userId,

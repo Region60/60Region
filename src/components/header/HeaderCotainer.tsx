@@ -6,6 +6,7 @@ import {AppStateType} from "../../redux/reduxStore";
 
 class HeaderContainer extends React.Component {
     render() {
+        // @ts-ignore
         return <Header {...this.props}/>
     }
 }

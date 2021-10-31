@@ -1,6 +1,8 @@
-import {profileAPI, usersAPI} from "../api/api";
-import {stopSubmit} from "redux-form";
+import {FormAction, stopSubmit} from "redux-form";
 import {PhotosType, PostsType, ProfileTypes} from "../types/type";
+import {usersAPI} from "../api/user-api";
+import {profileAPI} from "../api/profile-api";
+import { BaseThunkType, InferActionsTypes} from "./reduxStore";
 
 
 let ADD_POST = 'ADD-POST';
@@ -16,11 +18,12 @@ let initialState = {
         {id: 1, message: 'Hello', likesCount: 12},
         {id: 2, message: 'It\'s my first post', likesCount: 4}
     ] as Array<PostsType>,
-    profile: null as PhotosType | null,
+    profile: null as ProfileTypes | null,
     status: "!!!!!!!" as string | null
 };
-export type InitialStateType = typeof initialState
-const profileReducer = (state = initialState, action: any) => {
+export type initialState = typeof initialState
+
+const profileReducer = (state = initialState, action: ActionsTypes): initialState => {
     switch (action.type) {
 
         case ADD_POST:
@@ -41,68 +44,40 @@ const profileReducer = (state = initialState, action: any) => {
     }
 }
 
-type AddPostActionCreatorType = {
-    type: typeof ADD_POST
-    newPostText: string
-}
-export const addPostActionCreator = (newPostText: string): AddPostActionCreatorType => {
-    return {type: ADD_POST, newPostText}
-}
-type DeletePostType = {
-    type: typeof DELETE
-    postId: number
-}
-export const deletePost = (postId: number): DeletePostType => {
-    return {type: DELETE, postId}
-}
-type SetUserProfileType = {
-    type: typeof SET_USER_PROFILE
-    profile: ProfileTypes
-}
-export const setUserProfile = (profile: ProfileTypes): SetUserProfileType => {
-    return {type: SET_USER_PROFILE, profile: profile}
-}
-type savePhotosSucsessType = {
-    type: typeof SAVE_PHOTO
-    photos: PhotosType
-}
-export const savePhotoSucsess = (photos: PhotosType): savePhotosSucsessType => {
-    return {type: SAVE_PHOTO, photos: photos}
+type ActionsTypes = InferActionsTypes<typeof actionsProfileReducer>
+type ThunkType  = BaseThunkType<ActionsTypes | FormAction>
+
+export const actionsProfileReducer = {
+    addPostActionCreator: (newPostText: string)=>  {return {type: ADD_POST, newPostText}as const},
+    deletePost: (postId: number)=>  {return {type: DELETE, postId}as const},
+    setUserProfile: (profile: ProfileTypes)=>  {return {type: SET_USER_PROFILE, profile: profile}as const},
+    savePhotoSucsess: (photos: PhotosType)=>  {return {type: SAVE_PHOTO, photos: photos}as const},
+    setStatus: (status: string)=>  {return {type: SET_STATUS, status: status}as const}
 }
 
-
-export const getUserProfile = (userId: number) => async (dispatch: any) => {
-    let response = await
-        usersAPI.getProfile(userId)
-    dispatch(setUserProfile(response.data))
-
-}
-type SetStatusType = {
-    type: typeof SET_STATUS
-    status: string
-}
-export const setStatus = (status: string): SetStatusType => {
-    return {type: SET_STATUS, status: status}
+export const getUserProfile = (userId: number): ThunkType => async (dispatch) =>  {
+    let response = await usersAPI.getProfile(userId)
+    dispatch(actionsProfileReducer.setUserProfile(response.data))
 }
 
-export const getStatus = (userId: number) => async (dispatch: any) => {
+export const getStatus = (userId: number): ThunkType => async (dispatch) => {
     let response = await profileAPI.getStatus(userId)
-    dispatch(setStatus(response.data))
+    dispatch(actionsProfileReducer.setStatus(response.data))
 }
 
-export const updateStatus = (status: string) => async (dispatch: any) => {
+export const updateStatus = (status: string): ThunkType => async (dispatch) => {
     let response = await profileAPI.updateStatus(status)
 
     if (response.data.resultCode === 0) {
-        dispatch(setStatus(status))
+        dispatch(actionsProfileReducer.setStatus(status))
     }
 }
 
-export const savePhoto = (photos: string) => async (dispatch: any) => {
+export const savePhoto = (photos: string):ThunkType => async (dispatch) => {
     let response = await profileAPI.savePhoto(photos)
 
     if (response.data.resultCode === 0) {
-        dispatch(savePhotoSucsess(response.data.data.photos
+        dispatch(actionsProfileReducer.savePhotoSucsess(response.data.data.photos
         ))
     }
 }

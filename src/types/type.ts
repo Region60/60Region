@@ -23,12 +23,21 @@ export type ProfileTypes = {
     lookingForAJobDescription: string
     fullName: string
     contakts: ContactsType
-    photos: PhotosType
+    photos: PhotosType | null
 }
 export type UsersType = {
     id: number
     name: string
-    status: string
-    photos: PhotosType
+    status: string | null
+    photos: PhotosType | null
     followed: boolean
+}
+
+export enum ResultCodeEnum  {
+    Success = 0,
+    Error = 1,
+
+}
+export enum CaptchaRequiredEnum  {
+    CaptchaIsRequired = 10
 }
