@@ -2,8 +2,7 @@ import {FormAction, stopSubmit} from "redux-form";
 import {securityAPI} from "../api/security-api";
 import {authAPI} from "../api/auth-api";
 import {CaptchaRequiredEnum, ResultCodeEnum} from "../types/type";
-import {AppStateType, BaseThunkType, InferActionsTypes} from "./reduxStore";
-import {actionsUserReducer} from "./users-reducer";
+import { BaseThunkType, InferActionsTypes} from "./reduxStore";
 
 let SET_USER_DATE = 'SET_USER_DATE';
 let SET_CAPTCHA_URL = 'SET_CAPTCHA_URL';
@@ -16,7 +15,7 @@ let initialState = {
     isAuth: false,
     captchaUrl: null as string|null
 }
-export type InitialStateType = typeof initialState
+type InitialStateType = typeof initialState
 const authReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
         case SET_USER_DATE:
@@ -28,13 +27,6 @@ const authReducer = (state = initialState, action: ActionsTypes): InitialStateTy
     }
 }
 
-
-type SetAuthUserDataActionDataType = {
-    userId: number|null
-    email: string|null
-    login: string|null
-    isAuth: boolean
-}
 type ActionsTypes = InferActionsTypes<typeof actionsAuthReducers>
 type ThunkType  = BaseThunkType<ActionsTypes | FormAction>
 
@@ -46,7 +38,6 @@ const actionsAuthReducers ={
     setCaptchaUrl: (captchaUrl: string)=> ({
         type: SET_CAPTCHA_URL,
         data: {captchaUrl}
-
     }as const)
 }
 

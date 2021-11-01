@@ -15,7 +15,6 @@ let mapStateToProps = (state: StateType) => {
 }
 let mapDispatchToProps = (dispatch: any) => {
     return {
-
         newMessage: (newMessageText: string) => {
             dispatch(addMessageActionCreator(newMessageText))
             dispatch(reset('dialogAddMessageForm'))

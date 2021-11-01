@@ -21,7 +21,7 @@ type DialogsType = {
 }
 type dialogsPropsType= {
     dialogsPage: DialogsType
-    newMessage:(value:any) => void
+    newMessage:(value:string) => void
     isAuth:boolean
 }
 

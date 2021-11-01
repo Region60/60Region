@@ -16,11 +16,13 @@ let rootReducers = combineReducers({
     form: formReducer,
     app:appReducer
 });
-type RootReducersType = typeof rootReducers
-export type AppStateType = ReturnType<RootReducersType>
+type RootReducerType = typeof rootReducers
+export type AppStateType = ReturnType<RootReducerType>
+
 type PropertiesTypes<T> = T extends {[key:string]: infer U}? U : never
 export type InferActionsTypes<T extends{[key: string]:(...args:any[])=>any}>=ReturnType<PropertiesTypes<T>>
-export type BaseThunkType<A extends Action, R = Promise<void>> = ThunkAction<R,AppStateType,unknown,A>
+
+export type BaseThunkType<A extends Action =Action, R = Promise<void>> = ThunkAction<R,AppStateType,unknown,A>
 let store = createStore(rootReducers, applyMiddleware(thunkMiddleware));
 // @ts-ignore
 window.store = store;
